@@ -9,6 +9,7 @@ import MyWorkSection from './components/MyWorkSection';
 import ProjectOverlay from './components/ProjectOverlay';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import GoToTopButton from './components/GoToTopButton';
 import myLogo from './assets/images/My logo.png';
 
 // Background styling will be handled by the main App div and section padding
@@ -170,6 +171,7 @@ function App() {
         <ContactSection formCardVisible={formCardVisible} theme={theme} />
         <Footer theme={theme} />
       </main>
+      <GoToTopButton theme={theme} />
     </div>
   );
 }

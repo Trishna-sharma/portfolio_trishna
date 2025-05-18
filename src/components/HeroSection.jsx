@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaFilePdf } from 'react-icons/fa';
+import resumePdf from '../assets/images/resume.pdf'; // Adjusted path assuming HeroSection is in src/components
 
 const HeroSection = ({ showLongText, theme }) => {
   const textVariants = {
@@ -84,7 +85,7 @@ const HeroSection = ({ showLongText, theme }) => {
         <motion.div 
           custom={4}
           variants={buttonVariants}
-          className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
+          className="flex flex-col sm:flex-row sm:flex-wrap gap-4"
         >
           <a
             href="https://github.com/Trishna-sharma/JournalApp"
@@ -103,6 +104,15 @@ const HeroSection = ({ showLongText, theme }) => {
           >
             <FaExternalLinkAlt className="mr-2 -ml-1 h-5 w-5" />
             View JournalApp (Live)
+          </a>
+          <a
+            href={resumePdf}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-flex items-center justify-center px-6 py-3 border text-base font-medium rounded-md shadow-sm transition-colors ${theme === 'light' ? 'text-purple-600 border-purple-500 bg-white hover:bg-purple-50 focus:ring-purple-400' : 'text-blue-400 border-blue-400 bg-slate-800 hover:bg-slate-700 focus:ring-blue-500'} focus:outline-none focus:ring-2 focus:ring-offset-2 ${theme === 'light' ? 'focus:ring-offset-gray-50' : 'focus:ring-offset-slate-900'}`}
+          >
+            <FaFilePdf className="mr-2 -ml-1 h-5 w-5" />
+            View Resume
           </a>
         </motion.div>
       </motion.div>
