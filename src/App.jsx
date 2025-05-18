@@ -10,8 +10,7 @@ import ProjectOverlay from './components/ProjectOverlay';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import GoToTopButton from './components/GoToTopButton';
-import myLogo from '../public/My_logo.png';
-
+import myLogo from './../My_logo.png'
 // Background styling will be handled by the main App div and section padding
 
 function App() {
@@ -69,6 +68,7 @@ function App() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
+      const workThreshold = window.innerHeight * 1.8;
       // Scroll trigger points might need adjustment based on new non-parallax layout
       // For now, keeping them as window.innerHeight percentages
       if (scrollPosition > (window.innerHeight * 0.1)) { // Earlier trigger for hero text
@@ -86,10 +86,12 @@ function App() {
       } else {
         if (infoCardVisible) setInfoCardVisible(false);
       }
-      if (scrollPosition > (window.innerHeight * 1.8)) { // My Work
+      if (scrollPosition > workThreshold) { // My Work
         if (!subjectBoxesVisible) setSubjectBoxesVisible(true);
       } else {
-        if (subjectBoxesVisible) setSubjectBoxesVisible(false);
+        if (subjectBoxesVisible) {
+            setSubjectBoxesVisible(false);
+        }
       }
       if (scrollPosition > (window.innerHeight * 2.5)) { // Contact
         if(!formCardVisible) setFormCardVisible(true);

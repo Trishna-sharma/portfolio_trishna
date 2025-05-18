@@ -44,3 +44,22 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Custom styles for project overlay content */
+.project-details-inner-content h1,
+.project-details-inner-content h2,
+.project-details-inner-content h3,
+.project-details-inner-content h4,
+.project-details-inner-content h5,
+.project-details-inner-content h6 {
+  color: #00E5B0; /* accent-teal */
+}
+
+.project-details-inner-content a {
+  color: #2563EB; /* blue-600 */
+  text-decoration: underline;
+}
+
+.project-details-inner-content a:hover {
+  color: #1D4ED8; /* blue-700 */
+}
