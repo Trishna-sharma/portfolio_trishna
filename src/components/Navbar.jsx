@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
+import { FaHome, FaCog, FaUser, FaBriefcase, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa';
 
 function Navbar({ myLogo }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { href: "#intro", label: "Intro" },
-    { href: "#what I do ", label: "What I do" },
-    { href: "#who  I am ", label: "Who I am" },
-    { href: "#My work", label: "My Work" },
-    { href: "#Contact", label: "Contact" },
+    { href: "#intro", label: "Intro", icon: <FaHome className="mr-2" /> },
+    { href: "#what I do ", label: "What I do", icon: <FaCog className="mr-2" /> },
+    { href: "#who  I am ", label: "Who I am", icon: <FaUser className="mr-2" /> },
+    { href: "#My work", label: "My Work", icon: <FaBriefcase className="mr-2" /> },
+    { href: "#Contact", label: "Contact", icon: <FaEnvelope className="mr-2" /> },
   ];
 
   return (
@@ -33,15 +34,10 @@ function Navbar({ myLogo }) {
               aria-expanded={isMobileMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
-              {/* Icon when menu is open (X) vs closed (hamburger) */}
               {isMobileMenuOpen ? (
-                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <FaTimes className="block h-6 w-6" aria-hidden="true" />
               ) : (
-                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+                <FaBars className="block h-6 w-6" aria-hidden="true" />
               )}
             </button>
           </div>
@@ -53,8 +49,9 @@ function Navbar({ myLogo }) {
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    className="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ease-in-out"
+                    className="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ease-in-out flex items-center"
                   >
+                    {item.icon}
                     {item.label}
                   </a>
                 </li>
@@ -73,8 +70,9 @@ function Navbar({ myLogo }) {
                 <a
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)} // Close menu on item click for SPA-like behavior
-                  className="text-gray-600 hover:bg-gray-100 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 ease-in-out"
+                  className="text-gray-600 hover:bg-gray-100 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 ease-in-out flex items-center"
                 >
+                  {item.icon}
                   {item.label}
                 </a>
               </li>

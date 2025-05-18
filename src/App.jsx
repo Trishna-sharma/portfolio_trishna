@@ -13,7 +13,7 @@ import Footer from './components/Footer'; // Import Footer
 import myLogo from './assets/images/My logo.png';
 
 // Import background images
-import coverImage3 from './assets/images/cover_image3.jpg';
+import coverImage3 from './assets/images/cover_image.jpg';
 import coverImage2 from './assets/images/cover_image2.jpg';
 import coverImage7 from './assets/images/cover_image7.jpg';
 import coverImage8 from './assets/images/cover_image8.jpg';
@@ -137,7 +137,7 @@ function App() {
         /> {/* Use ProjectOverlay component - moved it here so it's on top of main content */}
         
         {/* General wrapper for sections to apply common top padding */}
-        <main className=""> {/* User must manually update this if previous attempts failed */}
+        <main className="pt-16 md:pt-20"> {/* User must manually update this if previous attempts failed */}
 
           <HeroSection coverImage3={coverImage3} showLongText={showLongText} /> {/* Use HeroSection component */}
           
