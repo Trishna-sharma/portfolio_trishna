@@ -10,7 +10,7 @@ import ProjectOverlay from './components/ProjectOverlay';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import GoToTopButton from './components/GoToTopButton';
-import myLogo from './../My_logo.png'
+import myLogo from './assets/images/My_logo.png';
 // Background styling will be handled by the main App div and section padding
 
 function App() {
