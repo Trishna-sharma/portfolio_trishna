@@ -46,7 +46,7 @@ const ContactSection = ({ formCardVisible, theme }) => {
               type="submit" 
               className={`w-full font-medium rounded-lg text-base px-6 py-3 text-center transition-colors duration-300 ease-in-out focus:ring-4 focus:outline-none ${
                 theme === 'light' 
-                  ? 'text-white bg-highlight-orange hover:bg-highlight-orange/90 focus:ring-highlight-orange focus:ring-offset-white' 
+                  ? 'text-neutral-dark bg-highlight-orange hover:bg-highlight-orange/90 focus:ring-highlight-orange focus:ring-offset-white' 
                   : 'text-neutral-dark bg-highlight-orange hover:bg-highlight-orange/90 focus:ring-highlight-orange focus:ring-offset-neutral-dark'
               }`}
             >
