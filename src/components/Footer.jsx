@@ -6,13 +6,13 @@ const Footer = ({ theme }) => {
     <footer className={`py-8 text-center ${theme === 'light' ? 'bg-gray-200 text-slate-700' : 'bg-slate-900 text-slate-400'}`}>
       <div className="container mx-auto px-4">
         <div className="social_icons flex justify-center space-x-6 mb-4">
-          <a href="https://github.com/Trishna-sharma" target="_blank" rel="noopener noreferrer" className={`text-3xl ${theme === 'light' ? 'hover:text-blue-600' : 'hover:text-blue-400'} transition-colors`}>
+          <a href="https://github.com/Trishna-sharma" target="_blank" rel="noopener noreferrer" className={`text-3xl ${theme === 'light' ? 'text-slate-600 hover:text-purple-600' : 'text-slate-400 hover:text-blue-400'} transition-colors`}>
             <FaGithub />
           </a>
-          <a href="https://www.linkedin.com/in/trishna-sharma-fs/" target="_blank" rel="noopener noreferrer" className={`text-3xl ${theme === 'light' ? 'hover:text-blue-600' : 'hover:text-blue-400'} transition-colors`}>
+          <a href="https://www.linkedin.com/in/trishna-sharma-fs/" target="_blank" rel="noopener noreferrer" className={`text-3xl ${theme === 'light' ? 'text-slate-600 hover:text-purple-600' : 'text-slate-400 hover:text-blue-400'} transition-colors`}>
             <FaLinkedin />
           </a>
-          <a href="mailto:trishnasharma9871@gmail.com" className={`text-3xl ${theme === 'light' ? 'hover:text-blue-600' : 'hover:text-blue-400'} transition-colors`}>
+          <a href="mailto:trishnasharma9871@gmail.com" className={`text-3xl ${theme === 'light' ? 'text-slate-600 hover:text-purple-600' : 'text-slate-400 hover:text-blue-400'} transition-colors`}>
             <FaEnvelope />
           </a>
         </div>

@@ -18,9 +18,9 @@ const AboutMeSection = ({ infoCardVisible, theme }) => {
           <img 
             src={profilePicture} 
             alt="Trishna Shil" 
-            className={`rounded-full w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover mb-8 border-4 shadow-lg ${theme === 'light' ? 'border-blue-500' : 'border-blue-400'}`}
+            className={`rounded-full w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover mb-8 border-4 shadow-lg ${theme === 'light' ? 'border-purple-500' : 'border-blue-400'}`}
           />
-          <h2 className={`text-3xl sm:text-4xl font-bold mb-6 text-center ${theme === 'light' ? 'text-blue-600' : 'text-blue-400'}`}>About Me</h2>
+          <h2 className={`text-3xl sm:text-4xl font-bold mb-6 text-center ${theme === 'light' ? 'text-purple-600' : 'text-blue-400'}`}>About Me</h2>
           <div className={`text-center sm:text-left ${theme === 'light' ? 'text-slate-700' : 'text-slate-300'}`}>
             <p className="text-base sm:text-lg leading-relaxed mb-4">
               Hello! I'm Trishna, a versatile developer and designer with a keen eye for detail and a love for creating seamless user experiences. My journey in the tech world has equipped me with a robust skill set spanning front-end and back-end development, UI/UX principles, and emerging technologies.

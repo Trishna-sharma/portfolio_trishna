@@ -37,13 +37,13 @@ const ProjectOverlay = ({ overlayVisible, handleCloseOverlay, projectDetailsCont
           >
             <button 
               onClick={handleCloseOverlay} 
-              className={`absolute top-4 right-4 text-3xl transition-colors ${theme === 'light' ? 'text-slate-500 hover:text-blue-600' : 'text-slate-400 hover:text-blue-400'}`}
+              className={`absolute top-4 right-4 text-3xl transition-colors ${theme === 'light' ? 'text-slate-500 hover:text-purple-600' : 'text-slate-400 hover:text-blue-400'}`}
               aria-label="Close project details"
             >
               <FaTimes />
             </button>
             <div 
-              className={`prose prose-sm sm:prose-base max-w-none ${theme === 'light' ? 'prose-slate' : 'prose-invert'} prose-headings:font-semibold prose-a:transition-colors ${theme === 'light' ? 'prose-headings:text-blue-600 prose-a:text-blue-500 hover:prose-a:text-blue-700' : 'prose-headings:text-blue-400 prose-a:text-blue-400 hover:prose-a:text-blue-300'}`}
+              className={`prose prose-sm sm:prose-base max-w-none ${theme === 'light' ? 'prose-slate' : 'prose-invert'} prose-headings:font-semibold prose-a:transition-colors ${theme === 'light' ? 'prose-headings:text-purple-600 prose-a:text-purple-500 hover:prose-a:text-purple-700' : 'prose-headings:text-blue-400 prose-a:text-blue-400 hover:prose-a:text-blue-300'}`}
             >
               {projectDetailsContent}
             </div>

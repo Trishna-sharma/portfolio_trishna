@@ -9,13 +9,13 @@ function SpecializationSection({ myFieldVisible, theme }) {
       name: "Frontend Development",
       details: "Crafting responsive and dynamic user interfaces with modern frameworks.",
       icons: [FaReact, FaHtml5, FaCss3Alt, FaJsSquare],
-      iconColors: ['text-sky-400', 'text-orange-500', 'text-blue-500', 'text-yellow-400']
+      iconColors: ['text-sky-400', 'text-orange-500', theme === 'light' ? 'text-purple-500' : 'text-blue-500', 'text-yellow-400']
     },
     {
       name: "UI/UX Design",
       details: "Figma, Adobe XD",
       icons: [FaFigma, FaPalette],
-      iconColors: ['text-pink-500', 'text-indigo-500']
+      iconColors: ['text-pink-500', theme === 'light' ? 'text-purple-500' : 'text-indigo-500']
     },
     {
       name: "Mobile App Development",
@@ -39,7 +39,7 @@ function SpecializationSection({ myFieldVisible, theme }) {
       name: "Styling & Frameworks",
       details: "Tailwind CSS, CSS3",
       icons: [FaCss3Alt, FaCss3Alt],
-      iconColors: ['text-teal-500', 'text-blue-500']
+      iconColors: ['text-teal-500', theme === 'light' ? 'text-purple-500' : 'text-blue-500']
     },
     {
       name: "Server Development",
@@ -50,14 +50,14 @@ function SpecializationSection({ myFieldVisible, theme }) {
     {
       name: "Database Management",
       details: "MongoDB, PostgreSQL",
-      icons: [FaDatabase, FaDatabase],
-      iconColors: ['text-green-500', 'text-blue-600']
+      icons: [FaDatabase, FaDatabase], 
+      iconColors: ['text-green-500', theme === 'light' ? 'text-purple-600' : 'text-blue-600']
     },
     {
       name: "Cloud Services",
       details: "AWS, Google Cloud",
       icons: [FaCloud, FaCloud],
-      iconColors: ['text-orange-400', 'text-blue-500']
+      iconColors: ['text-orange-400', theme === 'light' ? 'text-purple-500' : 'text-blue-500']
     }
   ];
 
@@ -78,7 +78,7 @@ function SpecializationSection({ myFieldVisible, theme }) {
         {specializations.map((spec, index) => (
           <div 
             key={spec.name} 
-            className={`p-6 rounded-xl shadow-xl transition-all duration-300 ease-out transform hover:scale-105 border ${myFieldVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} ${theme === 'light' ? 'bg-white hover:shadow-blue-500/20 border-gray-200 hover:border-blue-400' : 'bg-slate-800 bg-opacity-90 hover:shadow-blue-500/30 border-transparent hover:border-blue-500'}`}
+            className={`p-6 rounded-xl shadow-xl transition-all duration-300 ease-out transform hover:scale-105 border ${myFieldVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} ${theme === 'light' ? 'bg-white hover:shadow-purple-500/20 border-gray-200 hover:border-purple-400' : 'bg-slate-800 bg-opacity-90 hover:shadow-blue-500/30 border-transparent hover:border-blue-500'}`}
             style={{ transitionDelay: `${myFieldVisible ? index * 150 : 0}ms` }}
           >
             <div className="flex justify-center items-center space-x-4 text-5xl sm:text-6xl mb-6">
@@ -86,7 +86,7 @@ function SpecializationSection({ myFieldVisible, theme }) {
                 <IconComponent key={i} className={spec.iconColors[i] || (theme === 'light' ? 'text-slate-700' : 'text-slate-100')} />
               ))}
             </div>
-            <h3 className={`text-2xl font-semibold mb-3 ${theme === 'light' ? 'text-blue-600' : 'text-blue-400'}`}>{spec.name}</h3>
+            <h3 className={`text-2xl font-semibold mb-3 ${theme === 'light' ? 'text-purple-600' : 'text-blue-400'}`}>{spec.name}</h3>
             <p className={`text-base min-h-[40px] ${theme === 'light' ? 'text-slate-600' : 'text-slate-300'}`}>{spec.details}</p>
           </div>
         ))}

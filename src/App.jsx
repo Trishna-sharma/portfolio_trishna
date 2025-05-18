@@ -14,7 +14,16 @@ import myLogo from './assets/images/My logo.png';
 // Background styling will be handled by the main App div and section padding
 
 function App() {
-  const [theme, setTheme] = useState('dark'); // Default to dark theme
+  // Function to get initial theme based on system preference or localStorage
+  const getInitialTheme = () => {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+      return storedTheme;
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  };
+
+  const [theme, setTheme] = useState(getInitialTheme);
   const [showLongText, setShowLongText] = useState(false);
   const [myFieldVisible, setMyFieldVisible] = useState(false);
   const [infoCardVisible, setInfoCardVisible] = useState(false);
@@ -25,15 +34,35 @@ function App() {
   const [projectDetailsContent, setProjectDetailsContent] = useState(null);
 
   useEffect(() => {
+    // Apply theme class to HTML element and store preference
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
+  useEffect(() => {
+    // Listen for changes in system preference
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (e) => {
+      // Only update if no theme is manually set in localStorage
+      if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'dark' : 'light');
+      }
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+    setTheme((prevTheme) => {
+      const newTheme = prevTheme === 'light' ? 'dark' : 'light';
+      localStorage.setItem('theme', newTheme); // Explicitly set theme on toggle
+      return newTheme;
+    });
   };
 
   useEffect(() => {

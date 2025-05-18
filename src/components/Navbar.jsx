@@ -31,7 +31,7 @@ const Navbar = ({ myLogo, theme, toggleTheme }) => {
                   <li key={item.label}>
                     <a
                       href={item.href}
-                      className={`px-3 py-2 rounded-md text-base font-medium flex items-center space-x-2 ${theme === 'light' ? 'hover:bg-gray-100 hover:text-blue-500' : 'hover:bg-slate-700 hover:text-blue-400'} transition-colors`}
+                      className={`px-3 py-2 rounded-md text-base font-medium flex items-center space-x-2 ${theme === 'light' ? 'hover:bg-gray-100 hover:text-purple-600' : 'hover:bg-slate-700 hover:text-blue-400'} transition-colors`}
                     >
                       <IconComponent className={`h-5 w-5 ${theme === 'light' ? 'text-slate-600' : 'text-slate-400'}`} />
                       <span>{item.label}</span>
@@ -42,7 +42,7 @@ const Navbar = ({ myLogo, theme, toggleTheme }) => {
             </ul>
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-md ${theme === 'light' ? 'hover:bg-gray-100 text-slate-700' : 'hover:bg-slate-700 text-yellow-400'} transition-colors`}
+              className={`p-2 rounded-md ${theme === 'light' ? 'hover:bg-gray-100 text-purple-600' : 'hover:bg-slate-700 text-yellow-400'} transition-colors`}
               aria-label="Toggle theme"
             >
               {theme === 'light' ? <FaMoon className="h-6 w-6" /> : <FaSun className="h-6 w-6" />}
@@ -53,7 +53,7 @@ const Navbar = ({ myLogo, theme, toggleTheme }) => {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-md mr-2 ${theme === 'light' ? 'hover:bg-gray-100 text-slate-700' : 'hover:bg-slate-700 text-yellow-400'} transition-colors`}
+              className={`p-2 rounded-md mr-2 ${theme === 'light' ? 'hover:bg-gray-100 text-purple-600' : 'hover:bg-slate-700 text-yellow-400'} transition-colors`}
               aria-label="Toggle theme"
             >
               {theme === 'light' ? <FaMoon className="h-6 w-6" /> : <FaSun className="h-6 w-6" />}
@@ -80,7 +80,7 @@ const Navbar = ({ myLogo, theme, toggleTheme }) => {
                   <a
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block px-3 py-3 rounded-md text-lg font-medium flex items-center space-x-3 ${theme === 'light' ? 'text-slate-700 hover:bg-gray-100 hover:text-blue-500' : 'text-slate-300 hover:bg-slate-700 hover:text-blue-400'} transition-colors`}
+                    className={`block px-3 py-3 rounded-md text-lg font-medium flex items-center space-x-3 ${theme === 'light' ? 'text-slate-700 hover:bg-gray-100 hover:text-purple-600' : 'text-slate-300 hover:bg-slate-700 hover:text-blue-400'} transition-colors`}
                   >
                     <IconComponent className={`h-6 w-6 ${theme === 'light' ? 'text-slate-600' : 'text-slate-400'}`} />
                     <span>{item.label}</span>

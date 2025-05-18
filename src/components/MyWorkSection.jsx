@@ -28,12 +28,12 @@ function MyWorkSection({ projects, subjectBoxesVisible, handleSubjectClick, them
           <motion.div 
             key={key}
             onClick={() => handleSubjectClick(key)}
-            className={`subject_box p-6 rounded-xl shadow-xl cursor-pointer transition-all duration-300 ease-out transform hover:scale-105 border ${theme === 'light' ? 'bg-white hover:shadow-blue-500/20 border-gray-200 hover:border-blue-400' : 'bg-slate-800 bg-opacity-90 hover:shadow-blue-500/30 border-transparent hover:border-blue-500'}`}
+            className={`subject_box p-6 rounded-xl shadow-xl cursor-pointer transition-all duration-300 ease-out transform hover:scale-105 border ${theme === 'light' ? 'bg-white hover:shadow-purple-500/20 border-gray-200 hover:border-purple-400' : 'bg-slate-800 bg-opacity-90 hover:shadow-blue-500/30 border-transparent hover:border-blue-500'}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: subjectBoxesVisible ? 1 : 0, y: subjectBoxesVisible ? 0 : 20 }}
             transition={{ duration: 0.5, delay: subjectBoxesVisible ? index * 0.1 + 0.3 : 0 }}
           >
-            <h3 className={`text-xl font-semibold mb-3 min-h-[56px] flex items-center justify-center ${theme === 'light' ? 'text-blue-600' : 'text-blue-400'}`}>{projects[key].title}</h3> 
+            <h3 className={`text-xl font-semibold mb-3 min-h-[56px] flex items-center justify-center ${theme === 'light' ? 'text-purple-600' : 'text-blue-400'}`}>{projects[key].title}</h3> 
             <p className={`text-sm ${theme === 'light' ? 'text-slate-600' : 'text-slate-300'}`}>Click to see details</p>
           </motion.div>
         ))}
