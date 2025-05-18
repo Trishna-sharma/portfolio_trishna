@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ParallaxProvider } from 'react-scroll-parallax'; // Import ParallaxProvider
 // import './online_portfolio.css'; // CSS import removed
 import Navbar from './components/Navbar'; // Updated import path
 import LoadingSpinner from './components/LoadingSpinner'; // Import LoadingSpinner
@@ -123,41 +124,41 @@ function App() {
   };
 
   return (
-    // Apply overflow-x-hidden to the root fragment or a main div if needed
-    // For now, assuming Tailwind Preflight handles basic body styling
-    <>
-      <Navbar myLogo={myLogo} /> {/* Use the Navbar component */}
+    <ParallaxProvider> {/** Wrap the app with ParallaxProvider */}
+      <>
+        <Navbar myLogo={myLogo} /> {/* Use the Navbar component */}
 
-      {loadingSpinnerVisible && <LoadingSpinner />} {/* Use LoadingSpinner component */}
-      
-      <ProjectOverlay 
-        overlayVisible={overlayVisible} 
-        handleCloseOverlay={handleCloseOverlay} 
-        projectDetailsContent={projectDetailsContent} 
-      /> {/* Use ProjectOverlay component - moved it here so it's on top of main content */}
-      
-      {/* General wrapper for sections to apply common top padding */}
-      <main className="pt-16 md:pt-20"> {/* User must manually update this if previous attempts failed */}
-
-        <HeroSection coverImage3={coverImage3} showLongText={showLongText} /> {/* Use HeroSection component */}
+        {loadingSpinnerVisible && <LoadingSpinner />} {/* Use LoadingSpinner component */}
         
-        <SpecializationSection coverImage2={coverImage2} myFieldVisible={myFieldVisible} /> {/* Use SpecializationSection component */}
+        <ProjectOverlay 
+          overlayVisible={overlayVisible} 
+          handleCloseOverlay={handleCloseOverlay} 
+          projectDetailsContent={projectDetailsContent} 
+        /> {/* Use ProjectOverlay component - moved it here so it's on top of main content */}
+        
+        {/* General wrapper for sections to apply common top padding */}
+        <main className=""> {/* User must manually update this if previous attempts failed */}
 
-        <AboutMeSection coverImage7={coverImage7} infoCardVisible={infoCardVisible} /> {/* Use AboutMeSection component */}
+          <HeroSection coverImage3={coverImage3} showLongText={showLongText} /> {/* Use HeroSection component */}
+          
+          <SpecializationSection coverImage2={coverImage2} myFieldVisible={myFieldVisible} /> {/* Use SpecializationSection component */}
 
-        <MyWorkSection 
-          coverImage8={coverImage8} 
-          projects={projects} 
-          subjectBoxesVisible={subjectBoxesVisible} 
-          handleSubjectClick={handleSubjectClick} 
-        /> {/* Use MyWorkSection component */}
+          <AboutMeSection coverImage7={coverImage7} infoCardVisible={infoCardVisible} /> {/* Use AboutMeSection component */}
 
-        <ContactSection coverImage9={coverImage9} formCardVisible={formCardVisible} /> {/* Use ContactSection component */}
+          <MyWorkSection 
+            coverImage8={coverImage8} 
+            projects={projects} 
+            subjectBoxesVisible={subjectBoxesVisible} 
+            handleSubjectClick={handleSubjectClick} 
+          /> {/* Use MyWorkSection component */}
 
-        <Footer /> {/* Use Footer component */}
+          <ContactSection coverImage9={coverImage9} formCardVisible={formCardVisible} /> {/* Use ContactSection component */}
 
-      </main>
-    </>
+          <Footer /> {/* Use Footer component */}
+
+        </main>
+      </>
+    </ParallaxProvider>
   );
 }
 
