@@ -1,27 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { ParallaxProvider } from 'react-scroll-parallax'; // Import ParallaxProvider
-// import './online_portfolio.css'; // CSS import removed
-import Navbar from './components/Navbar'; // Updated import path
-import LoadingSpinner from './components/LoadingSpinner'; // Import LoadingSpinner
-import HeroSection from './components/HeroSection'; // Import HeroSection
-import SpecializationSection from './components/SpecializationSection'; // Import SpecializationSection
-import AboutMeSection from './components/AboutMeSection'; // Import AboutMeSection
-import MyWorkSection from './components/MyWorkSection'; // Import MyWorkSection
-import ProjectOverlay from './components/ProjectOverlay'; // Import ProjectOverlay
-import ContactSection from './components/ContactSection'; // Import ContactSection
-import Footer from './components/Footer'; // Import Footer
+// ParallaxProvider import removed
+import Navbar from './components/Navbar';
+import LoadingSpinner from './components/LoadingSpinner';
+import HeroSection from './components/HeroSection';
+import SpecializationSection from './components/SpecializationSection';
+import AboutMeSection from './components/AboutMeSection';
+import MyWorkSection from './components/MyWorkSection';
+import ProjectOverlay from './components/ProjectOverlay';
+import ContactSection from './components/ContactSection';
+import Footer from './components/Footer';
 import myLogo from './assets/images/My logo.png';
 
-// Import background images
-import coverImage3 from './assets/images/cover_image.jpg';
-import coverImage2 from './assets/images/cover_image2.jpg';
-import coverImage7 from './assets/images/cover_image7.jpg';
-import coverImage8 from './assets/images/cover_image8.jpg';
-import coverImage9 from './assets/images/cover_image9.jpg';
-// Note: Your CSS for .parallex_footer did not specify an image, but had background-color. 
-// If it needs an image, it should be imported here too.
+// Background styling will be handled by the main App div and section padding
 
 function App() {
+  const [theme, setTheme] = useState('dark'); // Default to dark theme
   const [showLongText, setShowLongText] = useState(false);
   const [myFieldVisible, setMyFieldVisible] = useState(false);
   const [infoCardVisible, setInfoCardVisible] = useState(false);
@@ -32,42 +25,43 @@ function App() {
   const [projectDetailsContent, setProjectDetailsContent] = useState(null);
 
   useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
+  useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      // Adjusted scroll trigger points based on typical section heights and desired effect
-      // These might need fine-tuning based on actual content and layout flow
-      if (scrollPosition > (window.innerHeight * 0.2)) { // Hero text transition
+      // Scroll trigger points might need adjustment based on new non-parallax layout
+      // For now, keeping them as window.innerHeight percentages
+      if (scrollPosition > (window.innerHeight * 0.1)) { // Earlier trigger for hero text
         if (!showLongText) setShowLongText(true);
       } else {
         if (showLongText) setShowLongText(false);
       }
-      // Assuming HeroSection is ~130vh, Specialization text appears during/after it.
-      if (scrollPosition > (window.innerHeight * 0.7)) { // Specialization text
+      if (scrollPosition > (window.innerHeight * 0.5)) { // Specialization 
         if (!myFieldVisible) setMyFieldVisible(true);
       } else {
         if (myFieldVisible) setMyFieldVisible(false);
       }
-      // Assuming SpecializationSection is ~170vh after Hero.
-      // Info card (AboutMe) appears after scrolling through a significant portion of previous sections.
-      // Let's try a more relative trigger, or a larger absolute value.
-      // Roughly: Hero (130vh) + Specialization (170vh) = 300vh. Let info card appear around 200-250vh.
-      // Original was 2500px.
-      if (scrollPosition > (window.innerHeight * 2.0)) { // Info card
+      if (scrollPosition > (window.innerHeight * 1.2)) { // About Me (after Hero ~70-80vh + padding)
         if (!infoCardVisible) setInfoCardVisible(true);
       } else {
         if (infoCardVisible) setInfoCardVisible(false);
       }
-      // MyWork subject boxes. Original was 2800px.
-      // Approx: Hero (130) + Spec (170) + About (170) = 470vh. Let MyWork boxes appear around 300-350vh.
-      if (scrollPosition > (window.innerHeight * 3.0)) { // Subject boxes
+      if (scrollPosition > (window.innerHeight * 1.8)) { // My Work
         if (!subjectBoxesVisible) setSubjectBoxesVisible(true);
       } else {
         if (subjectBoxesVisible) setSubjectBoxesVisible(false);
       }
-      // Contact Form. Original was 4000px.
-      // Approx: Hero (130) + Spec (170) + About (170) + MyWork (170) = 640vh.
-      // Let Contact form appear around 450-500vh.
-      if (scrollPosition > (window.innerHeight * 4.5)) { // Form card
+      if (scrollPosition > (window.innerHeight * 2.5)) { // Contact
         if(!formCardVisible) setFormCardVisible(true);
       } else {
         if(formCardVisible) setFormCardVisible(false);
@@ -124,41 +118,30 @@ function App() {
   };
 
   return (
-    <ParallaxProvider> {/** Wrap the app with ParallaxProvider */}
-      <>
-        <Navbar myLogo={myLogo} /> {/* Use the Navbar component */}
-
-        {loadingSpinnerVisible && <LoadingSpinner />} {/* Use LoadingSpinner component */}
-        
-        <ProjectOverlay 
-          overlayVisible={overlayVisible} 
-          handleCloseOverlay={handleCloseOverlay} 
-          projectDetailsContent={projectDetailsContent} 
-        /> {/* Use ProjectOverlay component - moved it here so it's on top of main content */}
-        
-        {/* General wrapper for sections to apply common top padding */}
-        <main className="pt-16 md:pt-20"> {/* User must manually update this if previous attempts failed */}
-
-          <HeroSection coverImage3={coverImage3} showLongText={showLongText} /> {/* Use HeroSection component */}
-          
-          <SpecializationSection coverImage2={coverImage2} myFieldVisible={myFieldVisible} /> {/* Use SpecializationSection component */}
-
-          <AboutMeSection coverImage7={coverImage7} infoCardVisible={infoCardVisible} /> {/* Use AboutMeSection component */}
-
-          <MyWorkSection 
-            coverImage8={coverImage8} 
-            projects={projects} 
-            subjectBoxesVisible={subjectBoxesVisible} 
-            handleSubjectClick={handleSubjectClick} 
-          /> {/* Use MyWorkSection component */}
-
-          <ContactSection coverImage9={coverImage9} formCardVisible={formCardVisible} /> {/* Use ContactSection component */}
-
-          <Footer /> {/* Use Footer component */}
-
-        </main>
-      </>
-    </ParallaxProvider>
+    <div className={`min-h-screen flex flex-col font-sans ${theme === 'light' ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'}`}>
+      <Navbar myLogo={myLogo} theme={theme} toggleTheme={toggleTheme} />
+      {loadingSpinnerVisible && <LoadingSpinner theme={theme} />}
+      <ProjectOverlay 
+        overlayVisible={overlayVisible} 
+        handleCloseOverlay={handleCloseOverlay} 
+        projectDetailsContent={projectDetailsContent} 
+        theme={theme}
+      />
+      {/* pt-20 md:pt-24 ensures content starts below the fixed navbar */}
+      <main className="w-full flex-grow pt-20 md:pt-24">
+        <HeroSection showLongText={showLongText} theme={theme} />
+        <SpecializationSection myFieldVisible={myFieldVisible} theme={theme} />
+        <AboutMeSection infoCardVisible={infoCardVisible} theme={theme} />
+        <MyWorkSection 
+          projects={projects} 
+          subjectBoxesVisible={subjectBoxesVisible} 
+          handleSubjectClick={handleSubjectClick} 
+          theme={theme}
+        />
+        <ContactSection formCardVisible={formCardVisible} theme={theme} />
+        <Footer theme={theme} />
+      </main>
+    </div>
   );
 }
 

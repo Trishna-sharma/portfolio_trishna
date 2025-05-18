@@ -1,38 +1,41 @@
 import React from 'react';
-import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
+import profilePicture from '../assets/images/profile_picture.jpg'; // Assuming this path and filename
+import { motion } from 'framer-motion';
 
-function AboutMeSection({ coverImage7, infoCardVisible }) {
+const AboutMeSection = ({ infoCardVisible, theme }) => {
   return (
-    <div 
-      id="who  I am " 
-      className="relative w-full overflow-hidden flex items-center justify-center" // flex behavior moved to outer div
-      style={{ height: '170vh' }} // Original height
+    <section
+      id="about-me"
+      className={`min-h-screen py-16 px-4 md:px-8 flex flex-col items-center justify-center relative overflow-hidden ${theme === 'light' ? 'bg-gray-50 text-slate-800' : 'bg-slate-900 text-slate-100'}`}
     >
-      <ParallaxBanner 
-        style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
-        className="w-full h-full"
-      >
-        <ParallaxBannerLayer speed={-10}> {/* Different speed */}
+      <div className="flex items-center justify-center p-8 w-full">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: infoCardVisible ? 1 : 0, scale: infoCardVisible ? 1 : 0.8 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className={`info_card p-8 md:p-12 rounded-xl shadow-xl max-w-2xl w-full flex flex-col items-center ${infoCardVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'} ${theme === 'light' ? 'bg-white text-slate-800' : 'bg-slate-800 bg-opacity-90 text-slate-100'}`}
+        >
           <img 
-            src={coverImage7} 
-            alt="About Me Background" 
-            className="absolute inset-0 w-full h-full object-cover"
+            src={profilePicture} 
+            alt="Trishna Shil" 
+            className={`rounded-full w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover mb-8 border-4 shadow-lg ${theme === 'light' ? 'border-blue-500' : 'border-blue-400'}`}
           />
-        </ParallaxBannerLayer>
-        <ParallaxBannerLayer className="absolute inset-0 flex items-center justify-center">
-          {/* Info Card */}
-          <div 
-            id="info_card" 
-            className={`bg-white bg-opacity-85 rounded-xl p-8 w-[70%] max-w-[800px] shadow-xl text-center transition-opacity duration-700 ease-out z-[4] ${infoCardVisible ? 'opacity-100' : 'opacity-0'}`}
-          >
-            <h1 id="my_information" className="text-xl font-normal leading-relaxed text-gray-800 sm:text-lg md:text-base">
-              I am a fresh graduate from Bath Spa University in Computer Science. I have always been fascinated by computers and how they perform so many intelligent tasks.
-            </h1>
+          <h2 className={`text-3xl sm:text-4xl font-bold mb-6 text-center ${theme === 'light' ? 'text-blue-600' : 'text-blue-400'}`}>About Me</h2>
+          <div className={`text-center sm:text-left ${theme === 'light' ? 'text-slate-700' : 'text-slate-300'}`}>
+            <p className="text-base sm:text-lg leading-relaxed mb-4">
+              Hello! I'm Trishna, a versatile developer and designer with a keen eye for detail and a love for creating seamless user experiences. My journey in the tech world has equipped me with a robust skill set spanning front-end and back-end development, UI/UX principles, and emerging technologies.
+            </p>
+            <p className="text-base sm:text-lg leading-relaxed mb-4">
+              I thrive on challenges and am constantly exploring new tools and techniques to bring innovative ideas to life. Whether it's crafting an intuitive mobile app, developing a dynamic website, or diving into the world of machine learning, I approach every project with dedication and a collaborative spirit.
+            </p>
+            <p className="text-base sm:text-lg leading-relaxed">
+              When I'm not coding, you can find me exploring new design trends, contributing to open-source projects, or enjoying a good cup of coffee.
+            </p>
           </div>
-        </ParallaxBannerLayer>
-      </ParallaxBanner>
-    </div>
+        </motion.div>
+      </div>
+    </section>
   );
-}
+};
 
 export default AboutMeSection; 

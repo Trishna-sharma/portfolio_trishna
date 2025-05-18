@@ -1,36 +1,30 @@
 import React from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
-function Footer() {
+const Footer = ({ theme }) => {
   return (
-    <footer 
-      className="relative w-full bg-gray-800 text-gray-100 px-5 py-12 text-center z-[3]"
-    >
-      <div className="max-w-3xl mx-auto">
-        <h3 className="text-2xl sm:text-3xl font-semibold mb-4">
-          Trishna Shil
-        </h3>
-        <p className="text-base leading-relaxed mb-6">
-          Thank you for visiting my portfolio. Let's connect!
-        </p>
-        <div className="social_icons mb-6 flex justify-center space-x-4 sm:space-x-6">
-          {/* Replace with actual links */}
-          <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-100 hover:text-green-500 text-2xl transition-colors duration-300 ease-in-out">
+    <footer className={`py-8 text-center ${theme === 'light' ? 'bg-gray-200 text-slate-700' : 'bg-slate-900 text-slate-400'}`}>
+      <div className="container mx-auto px-4">
+        <div className="social_icons flex justify-center space-x-6 mb-4">
+          <a href="https://github.com/Trishna-sharma" target="_blank" rel="noopener noreferrer" className={`text-3xl ${theme === 'light' ? 'hover:text-blue-600' : 'hover:text-blue-400'} transition-colors`}>
             <FaGithub />
-          </a> 
-          <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-100 hover:text-green-500 text-2xl transition-colors duration-300 ease-in-out">
+          </a>
+          <a href="https://www.linkedin.com/in/trishna-sharma-fs/" target="_blank" rel="noopener noreferrer" className={`text-3xl ${theme === 'light' ? 'hover:text-blue-600' : 'hover:text-blue-400'} transition-colors`}>
             <FaLinkedin />
           </a>
-          <a href="mailto:your-email@example.com" className="text-gray-100 hover:text-green-500 text-2xl transition-colors duration-300 ease-in-out">
+          <a href="mailto:trishnasharma9871@gmail.com" className={`text-3xl ${theme === 'light' ? 'hover:text-blue-600' : 'hover:text-blue-400'} transition-colors`}>
             <FaEnvelope />
           </a>
         </div>
-        <p className="copyright text-sm text-gray-400">
-          &copy; {new Date().getFullYear()} Trishna Shil. All rights reserved.
+        <p className="text-sm">
+          &copy; {new Date().getFullYear()} Trishna Sharma. All rights reserved.
+        </p>
+        <p className={`text-xs mt-2 ${theme === 'light' ? 'text-slate-500' : 'text-slate-500'}`}>
+          Built with React & Tailwind CSS. 
         </p>
       </div>
     </footer>
   );
-}
+};
 
 export default Footer; 

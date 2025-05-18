@@ -1,70 +1,44 @@
 import React from 'react';
-import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
+import { motion } from 'framer-motion';
 
-function ContactSection({ coverImage9, formCardVisible }) {
+const ContactSection = ({ formCardVisible, theme }) => {
   return (
-    <div 
-      id="Contact" 
-      className="relative w-full overflow-hidden flex flex-col items-center justify-center"
-      style={{ minHeight: '100vh' }}
+    <section
+      id="contact"
+      className={`min-h-screen py-16 px-4 md:px-8 flex flex-col items-center justify-center relative overflow-hidden ${theme === 'light' ? 'bg-gray-50 text-slate-800' : 'bg-slate-900 text-slate-100'}`}
     >
-      <ParallaxBanner 
-        style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
-        className="w-full h-full"
-      >
-        <ParallaxBannerLayer speed={-10}>
-          <img 
-            src={coverImage9} 
-            alt="Contact Background" 
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </ParallaxBannerLayer>
-        <ParallaxBannerLayer className="absolute inset-0 flex flex-col items-center justify-center py-16 md:py-24 px-4">
-          <div className="text-center text-white mb-8 md:mb-12 z-[2]">
-            <h1 className="text-4xl sm:text-5xl font-bold filter drop-shadow-[2px_2px_5px_rgba(0,0,0,0.5)]">
-              Contact Me
-            </h1>
-          </div>
-
-          <div 
-            id="form-card" 
-            className={`bg-white bg-opacity-90 shadow-2xl rounded-lg w-11/12 max-w-2xl p-6 sm:p-8 text-center transition-all duration-500 ease-in-out z-[5] ${formCardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}
-          >
-            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" className="flex flex-col gap-5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <input 
-                  type="text" 
-                  name="name" 
-                  placeholder="Your Name" 
-                  required 
-                  className="w-full p-3 sm:p-4 border border-gray-300 rounded-md text-base placeholder-gray-400 focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none"
-                />
-                <input 
-                  type="email" 
-                  name="email" 
-                  placeholder="Your Email" 
-                  required 
-                  className="w-full p-3 sm:p-4 border border-gray-300 rounded-md text-base placeholder-gray-400 focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none"
-                />
-              </div>
-              <textarea 
-                name="message" 
-                placeholder="Your Message" 
-                required 
-                className="w-full min-h-[150px] sm:min-h-[200px] p-3 sm:p-4 border border-gray-300 rounded-md text-base resize-y placeholder-gray-400 focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none"
-              ></textarea>
-              <button 
-                type="submit" 
-                className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 sm:py-4 px-5 rounded-md text-base transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
-        </ParallaxBannerLayer>
-      </ParallaxBanner>
-    </div>
+      <div className="flex items-center justify-center p-8 w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: formCardVisible ? 1 : 0, y: formCardVisible ? 0 : 50 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className={`form_card p-8 md:p-12 rounded-xl shadow-xl max-w-lg w-full ${formCardVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'} ${theme === 'light' ? 'bg-white text-slate-800' : 'bg-slate-800 bg-opacity-90 text-slate-100'}`}
+        >
+          <h2 className={`text-3xl sm:text-4xl font-bold mb-8 text-center ${theme === 'light' ? 'text-blue-600' : 'text-blue-400'}`}>Get In Touch</h2>
+          <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+            <div className="mb-6">
+              <label htmlFor="name" className={`block mb-2 text-sm font-medium ${theme === 'light' ? 'text-slate-700' : 'text-slate-300'}`}>Your Name</label>
+              <input type="text" id="name" name="name" className={`text-sm rounded-lg block w-full p-3 ${theme === 'light' ? 'bg-gray-100 border-gray-300 text-slate-900 focus:ring-blue-500 focus:border-blue-500' : 'bg-slate-700 border-slate-600 text-slate-100 focus:ring-blue-500 focus:border-blue-500'}`} placeholder="John Doe" required />
+            </div>
+            <div className="mb-6">
+              <label htmlFor="email" className={`block mb-2 text-sm font-medium ${theme === 'light' ? 'text-slate-700' : 'text-slate-300'}`}>Your Email</label>
+              <input type="email" id="email" name="email" className={`text-sm rounded-lg block w-full p-3 ${theme === 'light' ? 'bg-gray-100 border-gray-300 text-slate-900 focus:ring-blue-500 focus:border-blue-500' : 'bg-slate-700 border-slate-600 text-slate-100 focus:ring-blue-500 focus:border-blue-500'}`} placeholder="john.doe@example.com" required />
+            </div>
+            <div className="mb-6">
+              <label htmlFor="message" className={`block mb-2 text-sm font-medium ${theme === 'light' ? 'text-slate-700' : 'text-slate-300'}`}>Message</label>
+              <textarea id="message" name="message" rows="4" className={`text-sm rounded-lg block w-full p-3 ${theme === 'light' ? 'bg-gray-100 border-gray-300 text-slate-900 focus:ring-blue-500 focus:border-blue-500' : 'bg-slate-700 border-slate-600 text-slate-100 focus:ring-blue-500 focus:border-blue-500'}`} placeholder="Your message..." required></textarea>
+            </div>
+            <button 
+              type="submit" 
+              className={`w-full font-medium rounded-lg text-base px-6 py-3 text-center transition-colors duration-300 ease-in-out ${theme === 'light' ? 'text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300' : 'text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-800'}`}
+            >
+              Send Message
+            </button>
+          </form>
+        </motion.div>
+      </div>
+    </section>
   );
-}
+};
 
 export default ContactSection; 

@@ -1,45 +1,40 @@
 import React from 'react';
-import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
+import { motion } from 'framer-motion';
 
-function HeroSection({ coverImage3, showLongText }) {
+const HeroSection = ({ showLongText, theme }) => {
   return (
-    <div id="intro" className="relative w-full overflow-hidden" style={{ height: '100vh' }}>
-      <ParallaxBanner 
-        style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
-        className="w-full h-full"
+    <section
+      id="home"
+      className={`min-h-screen flex flex-col justify-center items-start p-8 md:p-16 relative overflow-hidden ${theme === 'light' ? 'bg-gray-50 text-slate-800' : 'bg-slate-900 text-slate-100'}`}
+    >
+      <motion.div
+        className="z-10 w-full max-w-4xl pl-[5%] sm:pl-[10%] md:pl-[15%]"
       >
-        <ParallaxBannerLayer speed={-15}>
-          <img 
-            src={coverImage3} 
-            alt="Background" 
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </ParallaxBannerLayer>
-        <ParallaxBannerLayer 
-          className="absolute inset-0 flex items-center justify-start pl-[10%] sm:pl-[15%] md:pl-[20%]"
+        <motion.span
+          className={`block text-5xl sm:text-6xl md:text-7xl font-bold mb-4 ${theme === 'light' ? 'text-slate-800' : 'text-slate-100'}`}
         >
-          <div className="text-left">
-            <h1 
-              className="text-[32px] sm:text-[48px] font-bold text-white filter drop-shadow-lg"
-            >
-              <span 
-                className={`block transition-opacity duration-500 ease-in-out ${!showLongText ? 'opacity-100' : 'opacity-0'}`}
-                style={{ display: !showLongText ? 'block' : 'none' }}
-              >
-                Hey.
-              </span>
-              <span 
-                className={`block transition-opacity duration-500 ease-in-out ${showLongText ? 'opacity-100' : 'opacity-0'}`}
-                style={{ display: showLongText ? 'block' : 'none' }}
-              >
-                I am Trishna Shil.
-              </span>
-            </h1>
-          </div>
-        </ParallaxBannerLayer>
-      </ParallaxBanner>
-    </div>
+          Hey.
+        </motion.span>
+        <motion.span
+          className={`block text-5xl sm:text-6xl md:text-7xl font-bold mb-4 ${theme === 'light' ? 'text-slate-800' : 'text-slate-100'}`}
+        >
+          I'm <span className={`text-blue-500 dark:text-blue-400`}>Trishna</span>,
+        </motion.span>
+        {showLongText && (
+          <motion.span
+            className={`block text-4xl sm:text-5xl md:text-6xl font-semibold mb-8 ${theme === 'light' ? 'text-slate-700' : 'text-slate-200'}`}
+          >
+            a <span className={`text-blue-500 dark:text-blue-400`}>Software Engineer</span>.
+          </motion.span>
+        )}
+        <motion.p
+            className={`text-lg sm:text-xl md:text-2xl leading-relaxed ${theme === 'light' ? 'text-slate-600' : 'text-slate-300'}`}
+        >
+            I craft digital experiences that are innovative, engaging, and user-centric.
+        </motion.p>
+      </motion.div>
+    </section>
   );
-}
+};
 
-export default HeroSection; 
+export default HeroSection;

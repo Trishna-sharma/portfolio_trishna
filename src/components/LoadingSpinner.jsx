@@ -1,11 +1,13 @@
 import React from 'react';
 
-function LoadingSpinner() {
+const LoadingSpinner = ({ theme }) => {
   return (
-    <div 
-      className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1001] w-[50px] h-[50px] border-[5px] border-solid border-gray-200 border-t-[5px] border-t-[#3498db] rounded-full animate-spin"
-    ></div>
+    <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-opacity-50 backdrop-blur-sm bg-slate-900">
+      <div 
+        className={`animate-spin rounded-full h-16 w-16 border-4 ${theme === 'light' ? 'border-gray-300 border-t-blue-500' : 'border-slate-700 border-t-blue-500'}`}
+      ></div>
+    </div>
   );
-}
+};
 
 export default LoadingSpinner; 

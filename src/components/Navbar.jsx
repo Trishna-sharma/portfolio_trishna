@@ -1,87 +1,98 @@
 import React, { useState } from 'react';
-import { FaHome, FaCog, FaUser, FaBriefcase, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa';
+import { FaHome, FaCog, FaUser, FaBriefcase, FaEnvelope, FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa';
 
-function Navbar({ myLogo }) {
+const Navbar = ({ myLogo, theme, toggleTheme }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { href: "#intro", label: "Intro", icon: <FaHome className="mr-2" /> },
-    { href: "#what I do ", label: "What I do", icon: <FaCog className="mr-2" /> },
-    { href: "#who  I am ", label: "Who I am", icon: <FaUser className="mr-2" /> },
-    { href: "#My work", label: "My Work", icon: <FaBriefcase className="mr-2" /> },
-    { href: "#Contact", label: "Contact", icon: <FaEnvelope className="mr-2" /> },
+    { href: "#home", label: "Home", icon: FaHome },
+    { href: "#specialization", label: "Specialization", icon: FaCog },
+    { href: "#about-me", label: "About Me", icon: FaUser },
+    { href: "#my-work", label: "My Work", icon: FaBriefcase },
+    { href: "#contact", label: "Contact", icon: FaEnvelope },
   ];
 
   return (
-    <nav className="bg-white w-full fixed top-0 left-0 z-[999] shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> {/* Container for consistent padding and max-width */}
-        <div className="flex items-center justify-between h-16 md:h-20"> {/* Main flex container for logo and menu/hamburger */}
-          
-          {/* Logo */}
+    <nav className={`fixed top-0 left-0 right-0 z-50 shadow-lg transition-all duration-300 ${theme === 'light' ? 'bg-white text-slate-800' : 'bg-slate-900 text-slate-300'} h-20 md:h-24`}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div className="flex justify-between items-center h-full">
           <div className="flex-shrink-0">
-            <a href="#intro" className="flex items-center">
-              <img src={myLogo} alt="My Logo" className="h-10 md:h-12 w-auto" />
+            <a href="#home" className="flex items-center">
+              <img className="h-12 md:h-14 w-auto" src={myLogo} alt="Logo" />
             </a>
           </div>
 
-          {/* Hamburger button - visible on mobile (screens smaller than md) */}
-          <div className="md:hidden">
+          {/* Desktop Menu & Theme Toggle */}
+          <div className="hidden md:flex items-center space-x-4">
+            <ul className="flex items-center space-x-2">
+              {navItems.map((item) => {
+                const IconComponent = item.icon;
+                return (
+                  <li key={item.label}>
+                    <a
+                      href={item.href}
+                      className={`px-3 py-2 rounded-md text-base font-medium flex items-center space-x-2 ${theme === 'light' ? 'hover:bg-gray-100 hover:text-blue-500' : 'hover:bg-slate-700 hover:text-blue-400'} transition-colors`}
+                    >
+                      <IconComponent className={`h-5 w-5 ${theme === 'light' ? 'text-slate-600' : 'text-slate-400'}`} />
+                      <span>{item.label}</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-              aria-controls="mobile-menu"
-              aria-expanded={isMobileMenuOpen}
+              onClick={toggleTheme}
+              className={`p-2 rounded-md ${theme === 'light' ? 'hover:bg-gray-100 text-slate-700' : 'hover:bg-slate-700 text-yellow-400'} transition-colors`}
+              aria-label="Toggle theme"
             >
-              <span className="sr-only">Open main menu</span>
-              {isMobileMenuOpen ? (
-                <FaTimes className="block h-6 w-6" aria-hidden="true" />
-              ) : (
-                <FaBars className="block h-6 w-6" aria-hidden="true" />
-              )}
+              {theme === 'light' ? <FaMoon className="h-6 w-6" /> : <FaSun className="h-6 w-6" />}
             </button>
           </div>
 
-          {/* Desktop Menu - hidden on mobile, visible on md and up */}
-          <div className="hidden md:block">
-            <ul className="ml-10 flex items-baseline space-x-2 lg:space-x-4">
-              {navItems.map(item => (
-                <li key={item.label}>
-                  <a
-                    href={item.href}
-                    className="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ease-in-out flex items-center"
-                  >
-                    {item.icon}
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          {/* Mobile Menu Button & Theme Toggle */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={toggleTheme}
+              className={`p-2 rounded-md mr-2 ${theme === 'light' ? 'hover:bg-gray-100 text-slate-700' : 'hover:bg-slate-700 text-yellow-400'} transition-colors`}
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? <FaMoon className="h-6 w-6" /> : <FaSun className="h-6 w-6" />}
+            </button>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`p-2 rounded-md ${theme === 'light' ? 'hover:bg-gray-100 text-slate-700' : 'hover:bg-slate-700 text-slate-300'} transition-colors`}
+              aria-label="Open main menu"
+            >
+              {isMobileMenuOpen ? <FaTimes className="h-7 w-7" /> : <FaBars className="h-7 w-7" />}
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu - Dropdown, shown/hidden based on isMobileMenuOpen state */} 
+      {/* Mobile Menu */} 
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full bg-white shadow-lg " id="mobile-menu">
-          <ul className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navItems.map(item => (
-              <li key={item.label}>
-                <a
-                  href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)} // Close menu on item click for SPA-like behavior
-                  className="text-gray-600 hover:bg-gray-100 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 ease-in-out flex items-center"
-                >
-                  {item.icon}
-                  {item.label}
-                </a>
-              </li>
-            ))}
+        <div className={`md:hidden absolute top-20 md:top-24 left-0 right-0 shadow-lg py-2 ${theme === 'light' ? 'bg-white border-t border-gray-200' : 'bg-slate-900 border-t border-slate-700'}`}>
+          <ul className="flex flex-col space-y-1 px-2 pt-2 pb-3">
+            {navItems.map((item) => {
+              const IconComponent = item.icon;
+              return (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block px-3 py-3 rounded-md text-lg font-medium flex items-center space-x-3 ${theme === 'light' ? 'text-slate-700 hover:bg-gray-100 hover:text-blue-500' : 'text-slate-300 hover:bg-slate-700 hover:text-blue-400'} transition-colors`}
+                  >
+                    <IconComponent className={`h-6 w-6 ${theme === 'light' ? 'text-slate-600' : 'text-slate-400'}`} />
+                    <span>{item.label}</span>
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}
     </nav>
   );
-}
+};
 
 export default Navbar; 
