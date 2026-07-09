@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaFilePdf } from 'react-icons/fa';
-import resumePdf from '../assets/images/resume.pdf'; // Adjusted path assuming HeroSection is in src/components
+import resumePdf from '../assets/images/UAE CV (QA).pdf'; // Adjusted path assuming HeroSection is in src/components
 
 const HeroSection = ({ showLongText, theme }) => {
   const textVariants = {
