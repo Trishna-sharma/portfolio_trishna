@@ -1,9 +1,27 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaFilePdf } from 'react-icons/fa';
 import resumePdf from '../assets/images/UAE CV (QA).pdf';
 
 const HeroSection = ({ showLongText, theme }) => {
+  // Roles to cycle through in the hero section animation
+  const roles = [
+    "Full-Stack Developer",
+    "QA Engineer",
+    "Web Developer"
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  // Timer to rotate titles every 2.5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % roles.length);
+    }, 2500);
+
+    return () => clearInterval(timer);
+  }, [roles.length]);
+
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i) => ({
@@ -73,15 +91,32 @@ const HeroSection = ({ showLongText, theme }) => {
         </motion.span>
 
         {showLongText && (
-          <motion.span
+          <motion.div
             custom={2}
             variants={textVariants}
-            className={`block text-4xl sm:text-5xl md:text-6xl font-semibold mb-6 ${
+            className={`text-3xl sm:text-5xl md:text-6xl font-semibold mb-6 flex flex-wrap items-center gap-x-3 ${
               theme === 'light' ? 'text-slate-700' : 'text-slate-200'
             }`}
           >
-            a <span className={`${theme === 'light' ? 'text-purple-600' : 'text-blue-400'}`}>Full-Stack Developer</span>.
-          </motion.span>
+            <span>a</span>
+            
+            <div className="relative overflow-hidden inline-block h-12 sm:h-16 md:h-20 flex items-center">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={roles[index]}
+                  initial={{ y: 24, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -24, opacity: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className={`inline-block ${
+                    theme === 'light' ? 'text-purple-600' : 'text-blue-400'
+                  }`}
+                >
+                  {roles[index]}
+                </motion.span>
+              </AnimatePresence>
+            </div>
+          </motion.div>
         )}
 
         <motion.p
