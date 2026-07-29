@@ -82,6 +82,30 @@ const HeroSection = ({ showLongText, theme }) => {
             Check out my latest full-stack project, JournalApp!
         </motion.p>
 
+
+        <motion.div 
+          custom={4}
+          variants={buttonVariants}
+          className="flex flex-col sm:flex-row sm:flex-wrap gap-4"
+        >
+          <a
+            href="https://github.com/Trishna-sharma/Her"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm transition-colors ${theme === 'light' ? 'text-white bg-purple-600 hover:bg-purple-700 focus:ring-purple-500' : 'text-white bg-blue-500 hover:bg-blue-600 focus:ring-blue-700'} focus:outline-none focus:ring-2 focus:ring-offset-2 ${theme === 'light' ? 'focus:ring-offset-gray-50' : 'focus:ring-offset-slate-900'}`}
+          >
+            <FaGithub className="mr-2 -ml-1 h-5 w-5" />
+            Her By Mou Website on Github
+          </a>
+          <a
+            href="https://her-by-mou-frontend.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-flex items-center justify-center px-6 py-3 border text-base font-medium rounded-md shadow-sm transition-colors ${theme === 'light' ? 'text-purple-600 border-purple-500 bg-white hover:bg-purple-50 focus:ring-purple-400' : 'text-blue-400 border-blue-400 bg-slate-800 hover:bg-slate-700 focus:ring-blue-500'} focus:outline-none focus:ring-2 focus:ring-offset-2 ${theme === 'light' ? 'focus:ring-offset-gray-50' : 'focus:ring-offset-slate-900'}`}
+          >
+            <FaExternalLinkAlt className="mr-2 -ml-1 h-5 w-5" />
+            Her By Mou (Live)
+          </a>
         <motion.div 
           custom={4}
           variants={buttonVariants}
