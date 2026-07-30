@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import LoadingSpinner from './components/LoadingSpinner';
 import HeroSection from './components/HeroSection';
-import TabNavigation from './components/TabNavigation'; // 👈 1. Imported TabNavigation
-import MyWorkSection from './components/MyWorkSection';
+import TabNavigation from './components/TabNavigation';
 import ProjectOverlay from './components/ProjectOverlay';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -12,7 +11,7 @@ import myLogo from './assets/images/My_logo.png';
 import { projects } from './data/projects';
 
 function App() {
-  // Function to get initial theme based on system preference or localStorage
+  // Theme state setup
   const getInitialTheme = () => {
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme) {
@@ -22,15 +21,13 @@ function App() {
   };
 
   const [theme, setTheme] = useState(getInitialTheme);
-  const [showLongText, setShowLongText] = useState(false);
-  const [subjectBoxesVisible, setSubjectBoxesVisible] = useState(false);
   const [formCardVisible, setFormCardVisible] = useState(false);
   const [overlayVisible, setOverlayVisible] = useState(false);
   const [loadingSpinnerVisible, setLoadingSpinnerVisible] = useState(false);
   const [projectDetailsContent, setProjectDetailsContent] = useState(null);
 
+  // Apply dark/light theme class to <html>
   useEffect(() => {
-    // Apply theme class to HTML element and store preference
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
@@ -39,8 +36,8 @@ function App() {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
+  // Handle system preference changes
   useEffect(() => {
-    // Listen for changes in system preference
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handleChange = (e) => {
       if (!localStorage.getItem('theme')) {
@@ -60,36 +57,22 @@ function App() {
     });
   };
 
+  // 🛠️ Simplified Scroll Listener: Removed showLongText and subjectBoxesVisible
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const workThreshold = window.innerHeight * 0.8;
 
-      if (scrollPosition > (window.innerHeight * 0.1)) {
-        if (!showLongText) setShowLongText(true);
+      if (scrollPosition > (window.innerHeight * 1.2)) {
+        if (!formCardVisible) setFormCardVisible(true);
       } else {
-        if (showLongText) setShowLongText(false);
-      }
-
-      if (scrollPosition > workThreshold) {
-        if (!subjectBoxesVisible) setSubjectBoxesVisible(true);
-      } else {
-        if (subjectBoxesVisible) {
-          setSubjectBoxesVisible(false);
-        }
-      }
-
-      if (scrollPosition > (window.innerHeight * 1.5)) {
-        if(!formCardVisible) setFormCardVisible(true);
-      } else {
-        if(formCardVisible) setFormCardVisible(false);
+        if (formCardVisible) setFormCardVisible(false);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     handleScroll(); 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [showLongText, subjectBoxesVisible, formCardVisible]);
+  }, [formCardVisible]);
 
   const handleSubjectClick = (subjectId) => {
     setLoadingSpinnerVisible(true);
@@ -120,7 +103,9 @@ function App() {
   return (
     <div className={`min-h-screen flex flex-col font-sans ${theme === 'light' ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'}`}>
       <Navbar myLogo={myLogo} theme={theme} toggleTheme={toggleTheme} />
+      
       {loadingSpinnerVisible && <LoadingSpinner theme={theme} />}
+      
       <ProjectOverlay 
         overlayVisible={overlayVisible} 
         handleCloseOverlay={handleCloseOverlay} 
@@ -129,16 +114,15 @@ function App() {
       />
       
       <main className="w-full flex-grow pt-20 md:pt-24">
-        {/* Hero Section */}
-        <HeroSection showLongText={showLongText} theme={theme} />
+        {/* Hero Section (No glitchy props) */}
+        <HeroSection theme={theme} />
         
-        {/* 👈 2. Tab Navigation Bar (CV / Projects Toggle) */}
-      <TabNavigation 
-        theme={theme} 
-        projects={projects} 
-        handleSubjectClick={handleSubjectClick} 
-        subjectBoxesVisible={subjectBoxesVisible} 
-      />
+        {/* Tab Navigation (Resume / Projects toggle) */}
+        <TabNavigation 
+          theme={theme} 
+          projects={projects} 
+          handleSubjectClick={handleSubjectClick} 
+        />
 
         {/* Contact Section */}
         <ContactSection formCardVisible={formCardVisible} theme={theme} />

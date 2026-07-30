@@ -11,13 +11,14 @@ function Navbar({ myLogo, theme, toggleTheme }) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
         
         {/* Logo Container - flex-shrink-0 prevents logo from shrinking */}
-        <a href="#home" className="flex-shrink-0 flex items-center">
-          <img 
-            src={myLogo} 
-            alt="Trishna Mou Logo" 
-            className="h-10 sm:h-12 w-auto object-contain" 
-          />
-        </a>
+      {/* Logo Link Container */}
+<a href="#home" className="flex-shrink-0 flex items-center py-2">
+  <img 
+    src={myLogo} 
+    alt="Trishna Mou Logo" 
+    className="h-12 sm:h-14 md:h-16 w-auto object-contain rounded-lg transition-transform hover:scale-105" 
+  />
+</a>
 
         {/* Navigation Links */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
