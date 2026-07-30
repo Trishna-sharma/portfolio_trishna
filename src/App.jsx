@@ -133,7 +133,12 @@ function App() {
         <HeroSection showLongText={showLongText} theme={theme} />
         
         {/* 👈 2. Tab Navigation Bar (CV / Projects Toggle) */}
-        <TabNavigation theme={theme} />
+      <TabNavigation 
+        theme={theme} 
+        projects={projects} 
+        handleSubjectClick={handleSubjectClick} 
+        subjectBoxesVisible={subjectBoxesVisible} 
+      />
 
         {/* Contact Section */}
         <ContactSection formCardVisible={formCardVisible} theme={theme} />
