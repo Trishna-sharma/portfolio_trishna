@@ -68,10 +68,10 @@ const TabNavigation = ({ theme, projects, handleSubjectClick, subjectBoxesVisibl
 
           {/* Download CV Button */}
           <a
-            href="#"
+            href="UAE CV (QA).pdf"
             onClick={(e) => {
               e.preventDefault();
-              alert("CV download triggered!");
+              alert("CV download initiated!");
             }}
             className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium border transition-all ${
               theme === 'light'
