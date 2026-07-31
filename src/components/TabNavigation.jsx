@@ -68,19 +68,16 @@ const TabNavigation = ({ theme, projects, handleSubjectClick, subjectBoxesVisibl
 
           {/* Download CV Button */}
           <a
-            href="UAE CV (QA).pdf"
-            onClick={(e) => {
-              e.preventDefault();
-              alert("CV download initiated!");
-            }}
+            href="/UAE CV (QA).pdf"
+            download="Trishna_Sharma_QA_CV.pdf"
             className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium border transition-all ${
-              theme === 'light'
-                ? 'border-purple-300 bg-white text-purple-600 hover:bg-purple-50 shadow-sm'
-                : 'border-slate-700 bg-slate-800 text-slate-200 hover:bg-slate-700'
-            }`}
-          >
-            <FaDownload className="w-3.5 h-3.5" />
-            <span>Download CV</span>
+            theme === 'light'
+            ? 'border-purple-300 bg-white text-purple-600 hover:bg-purple-50 shadow-sm'
+            : 'border-slate-700 bg-slate-800 text-slate-200 hover:bg-slate-700'
+           }`}
+         >
+           <FaDownload className="w-3.5 h-3.5" />
+             <span>Download CV</span>
           </a>
         </div>
       </div>
