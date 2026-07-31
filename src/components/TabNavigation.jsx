@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaDownload } from 'react-icons/fa';
 import MyWorkSection from './MyWorkSection'; // 👈 Updated to your actual component name
+import cvFile from '../assets/CV_QA.pdf'; // Adjust path relative to this file
 
 const TabNavigation = ({ theme, projects, handleSubjectClick, subjectBoxesVisible }) => {
   const [activeTab, setActiveTab] = useState('projects'); // 'projects' or 'resume'
