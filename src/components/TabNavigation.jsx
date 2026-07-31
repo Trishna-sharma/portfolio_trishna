@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaDownload } from 'react-icons/fa';
 import MyWorkSection from './MyWorkSection'; // 👈 Updated to your actual component name
-import cvFile from '../assets/CV_QA.pdf'; // Adjust path relative to this file
+import cvFile from './CV_QA.pdf'; // Adjust path relative to this file
 
 const TabNavigation = ({ theme, projects, handleSubjectClick, subjectBoxesVisible }) => {
   const [activeTab, setActiveTab] = useState('projects'); // 'projects' or 'resume'
@@ -69,7 +69,7 @@ const TabNavigation = ({ theme, projects, handleSubjectClick, subjectBoxesVisibl
 
           {/* Download CV Button */}
           <a
-            href="CV_QA.pdf"
+            href={cvFile}
             download="CV_QA.pdf"
             className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium border transition-all ${
             theme === 'light'
