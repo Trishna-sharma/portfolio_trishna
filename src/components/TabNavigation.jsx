@@ -69,7 +69,7 @@ const TabNavigation = ({ theme, projects, handleSubjectClick, subjectBoxesVisibl
           {/* Download CV Button */}
           <a
             href="/UAE CV (QA).pdf"
-            download="UAE_CV_(QA).pdf"
+            download="UAE CV (QA).pdf"
             className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium border transition-all ${
             theme === 'light'
             ? 'border-purple-300 bg-white text-purple-600 hover:bg-purple-50 shadow-sm'
