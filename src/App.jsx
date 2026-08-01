@@ -5,7 +5,6 @@ import HeroSection from './components/HeroSection';
 import TabNavigation from './components/TabNavigation';
 import ProjectOverlay from './components/ProjectOverlay';
 import ContactSection from './components/ContactSection';
-import Footer from './components/Footer';
 import GoToTopButton from './components/GoToTopButton';
 import myLogo from './assets/images/My_logo.png';
 import { projects } from './data/projects';
@@ -127,9 +126,7 @@ function App() {
         {/* Contact Section */}
         <ContactSection formCardVisible={formCardVisible} theme={theme} />
         
-        {/* Footer */}
-        <Footer theme={theme} />
-      </main>
+        </main>
       
       <GoToTopButton theme={theme} />
     </div>
