@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   FaBriefcase, 
   FaGraduationCap, 
@@ -11,7 +11,9 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
   FaGlobeAmericas,
-  FaPaperPlane
+  FaPaperPlane,
+  FaLinkedin,
+  FaGithub
 } from 'react-icons/fa';
 
 const ResumeSection = ({ theme }) => {
@@ -104,11 +106,11 @@ const ResumeSection = ({ theme }) => {
         })}
       </div>
 
-      {/* 🔹 Main Even 2-Column Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+      {/* 🔹 Main 2-Column Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
-        {/* ================= LEFT COLUMN ================= */}
-        <div className="flex flex-col gap-6">
+        {/* LEFT COLUMN: Experience & Education */}
+        <div className="lg:col-span-7 flex flex-col gap-6">
           
           {/* WORK EXPERIENCE */}
           {(showSection('Experience') || activeFilter === 'All') && (
@@ -116,11 +118,8 @@ const ResumeSection = ({ theme }) => {
               layout 
               initial={{ opacity: 0, y: 10 }} 
               animate={{ opacity: 1, y: 0 }} 
-              exit={{ opacity: 0, y: 10 }}
               className={`p-6 rounded-2xl border ${
-                theme === 'light' 
-                  ? 'bg-slate-50 border-slate-200' 
-                  : 'bg-slate-800/40 border-slate-700/60'
+                theme === 'light' ? 'bg-slate-50 border-slate-200' : 'bg-slate-800/40 border-slate-700/60'
               }`}
             >
               <div className="flex items-center gap-3 mb-6">
@@ -131,7 +130,6 @@ const ResumeSection = ({ theme }) => {
               </div>
 
               <div className="flex flex-col gap-6 border-l-2 border-purple-500/30 pl-4 ml-3">
-                {/* Job 1 */}
                 <div className="relative">
                   <span className="absolute -left-[23px] top-1.5 w-3 h-3 rounded-full bg-purple-600 ring-4 ring-purple-500/20" />
                   <div className="flex flex-wrap items-center justify-between gap-1 mb-1">
@@ -148,7 +146,6 @@ const ResumeSection = ({ theme }) => {
                   </ul>
                 </div>
 
-                {/* Job 2 */}
                 <div className="relative">
                   <span className="absolute -left-[23px] top-1.5 w-3 h-3 rounded-full bg-purple-600 ring-4 ring-purple-500/20" />
                   <div className="flex flex-wrap items-center justify-between gap-1 mb-1">
@@ -173,11 +170,8 @@ const ResumeSection = ({ theme }) => {
               layout 
               initial={{ opacity: 0, y: 10 }} 
               animate={{ opacity: 1, y: 0 }} 
-              exit={{ opacity: 0, y: 10 }}
               className={`p-6 rounded-2xl border ${
-                theme === 'light' 
-                  ? 'bg-slate-50 border-slate-200' 
-                  : 'bg-slate-800/40 border-slate-700/60'
+                theme === 'light' ? 'bg-slate-50 border-slate-200' : 'bg-slate-800/40 border-slate-700/60'
               }`}
             >
               <div className="flex items-center gap-3 mb-6">
@@ -206,72 +200,10 @@ const ResumeSection = ({ theme }) => {
             </motion.div>
           )}
 
-          {/* 🔹 LET'S CONNECT CARD (NO FORM) */}
-          {(activeFilter === 'All' || activeFilter === 'Experience' || activeFilter === 'Education' || activeFilter === 'Skills') && (
-            <motion.div 
-              layout
-              initial={{ opacity: 0, y: 10 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              className={`p-6 rounded-2xl border flex flex-col gap-4 ${
-                theme === 'light' 
-                  ? 'bg-gradient-to-br from-purple-50/60 to-slate-50 border-purple-200/80' 
-                  : 'bg-gradient-to-br from-purple-900/20 to-slate-800/40 border-purple-500/30'
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400">
-                  <FaPaperPlane className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold">Let's Connect</h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">Get in touch for QA Testing or Web Development projects.</p>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-2.5 text-xs pt-2">
-                <a 
-                  href="mailto:Trishnasharma2002@gmail.com" 
-                  className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${
-                    theme === 'light' 
-                      ? 'bg-white border-slate-200 hover:border-purple-300 shadow-sm' 
-                      : 'bg-slate-900/60 border-slate-700/80 hover:border-purple-500/50'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <FaEnvelope className="text-purple-500 w-4 h-4" />
-                    <span className="font-medium text-slate-700 dark:text-slate-200">Trishnasharma2002@gmail.com</span>
-                  </div>
-                  <span className="text-[11px] font-semibold text-purple-600 dark:text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-md">
-                    Email Me
-                  </span>
-                </a>
-
-                <a 
-                  href="https://trishna-shil-mou.vercel.app/" 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${
-                    theme === 'light' 
-                      ? 'bg-white border-slate-200 hover:border-purple-300 shadow-sm' 
-                      : 'bg-slate-900/60 border-slate-700/80 hover:border-purple-500/50'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <FaGlobeAmericas className="text-purple-500 w-4 h-4" />
-                    <span className="font-medium text-slate-700 dark:text-slate-200">trishna-shil-mou.vercel.app</span>
-                  </div>
-                  <span className="text-[11px] font-semibold text-purple-600 dark:text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-md">
-                    Visit Portfolio
-                  </span>
-                </a>
-              </div>
-            </motion.div>
-          )}
-
         </div>
 
-        {/* ================= RIGHT COLUMN ================= */}
-        <div className="flex flex-col gap-6">
+        {/* RIGHT COLUMN: Specializations, Tech Stack, Skills, Languages & Let's Connect */}
+        <div className="lg:col-span-5 flex flex-col gap-6">
           
           {/* SPECIALIZATIONS */}
           {(showSection('Specializations') || activeFilter === 'All') && (
@@ -279,11 +211,8 @@ const ResumeSection = ({ theme }) => {
               layout 
               initial={{ opacity: 0, y: 10 }} 
               animate={{ opacity: 1, y: 0 }} 
-              exit={{ opacity: 0, y: 10 }}
               className={`p-6 rounded-2xl border ${
-                theme === 'light' 
-                  ? 'bg-slate-50 border-slate-200' 
-                  : 'bg-slate-800/40 border-slate-700/60'
+                theme === 'light' ? 'bg-slate-50 border-slate-200' : 'bg-slate-800/40 border-slate-700/60'
               }`}
             >
               <div className="flex items-center gap-3 mb-4">
@@ -317,11 +246,8 @@ const ResumeSection = ({ theme }) => {
               layout 
               initial={{ opacity: 0, y: 10 }} 
               animate={{ opacity: 1, y: 0 }} 
-              exit={{ opacity: 0, y: 10 }}
               className={`p-6 rounded-2xl border ${
-                theme === 'light' 
-                  ? 'bg-slate-50 border-slate-200' 
-                  : 'bg-slate-800/40 border-slate-700/60'
+                theme === 'light' ? 'bg-slate-50 border-slate-200' : 'bg-slate-800/40 border-slate-700/60'
               }`}
             >
               <div className="flex items-center gap-3 mb-4">
@@ -376,11 +302,8 @@ const ResumeSection = ({ theme }) => {
               layout 
               initial={{ opacity: 0, y: 10 }} 
               animate={{ opacity: 1, y: 0 }} 
-              exit={{ opacity: 0, y: 10 }}
               className={`p-6 rounded-2xl border ${
-                theme === 'light' 
-                  ? 'bg-slate-50 border-slate-200' 
-                  : 'bg-slate-800/40 border-slate-700/60'
+                theme === 'light' ? 'bg-slate-50 border-slate-200' : 'bg-slate-800/40 border-slate-700/60'
               }`}
             >
               <div className="flex items-center gap-3 mb-4">
@@ -419,11 +342,8 @@ const ResumeSection = ({ theme }) => {
               layout 
               initial={{ opacity: 0, y: 10 }} 
               animate={{ opacity: 1, y: 0 }} 
-              exit={{ opacity: 0, y: 10 }}
               className={`p-6 rounded-2xl border ${
-                theme === 'light' 
-                  ? 'bg-slate-50 border-slate-200' 
-                  : 'bg-slate-800/40 border-slate-700/60'
+                theme === 'light' ? 'bg-slate-50 border-slate-200' : 'bg-slate-800/40 border-slate-700/60'
               }`}
             >
               <div className="flex items-center gap-3 mb-3">
@@ -445,6 +365,66 @@ const ResumeSection = ({ theme }) => {
               </div>
             </motion.div>
           )}
+
+          {/* 🔹 LET'S CONNECT CARD (NO INPUT FORM - PLACED DIRECTLY BELOW LANGUAGES TO FILL EMPTY SPACE) */}
+          <motion.div 
+            layout
+            initial={{ opacity: 0, y: 10 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            className={`p-6 rounded-2xl border flex flex-col gap-4 ${
+              theme === 'light' 
+                ? 'bg-gradient-to-br from-purple-50/60 to-slate-50 border-purple-200/80' 
+                : 'bg-gradient-to-br from-purple-900/20 to-slate-800/40 border-purple-500/30'
+            }`}
+          >
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400">
+                <FaPaperPlane className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold">Let's Connect</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Open for QA Testing & Web Development roles.</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-2.5 text-xs pt-2">
+              <a 
+                href="mailto:Trishnasharma2002@gmail.com" 
+                className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${
+                  theme === 'light' 
+                    ? 'bg-white border-slate-200 hover:border-purple-300 shadow-sm' 
+                    : 'bg-slate-900/60 border-slate-700/80 hover:border-purple-500/50'
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <FaEnvelope className="text-purple-500 w-4 h-4" />
+                  <span className="font-medium text-slate-700 dark:text-slate-200">Trishnasharma2002@gmail.com</span>
+                </div>
+                <span className="text-[11px] font-semibold text-purple-600 dark:text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-md">
+                  Email Me
+                </span>
+              </a>
+
+              <a 
+                href="https://trishna-shil-mou.vercel.app/" 
+                target="_blank" 
+                rel="noreferrer"
+                className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${
+                  theme === 'light' 
+                    ? 'bg-white border-slate-200 hover:border-purple-300 shadow-sm' 
+                    : 'bg-slate-900/60 border-slate-700/80 hover:border-purple-500/50'
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <FaGlobeAmericas className="text-purple-500 w-4 h-4" />
+                  <span className="font-medium text-slate-700 dark:text-slate-200">trishna-shil-mou.vercel.app</span>
+                </div>
+                <span className="text-[11px] font-semibold text-purple-600 dark:text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-md">
+                  Visit Portfolio
+                </span>
+              </a>
+            </div>
+          </motion.div>
 
         </div>
 
