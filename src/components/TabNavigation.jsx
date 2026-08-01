@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaDownload } from 'react-icons/fa';
 import MyWorkSection from './MyWorkSection';
+import ResumeSection from './ResumeSection';
 import cvFile from '../assets/images/CV_QA.pdf';
 
 const TabNavigation = ({ theme, projects, handleSubjectClick, subjectBoxesVisible }) => {
@@ -94,10 +95,7 @@ const TabNavigation = ({ theme, projects, handleSubjectClick, subjectBoxesVisibl
             theme={theme} 
           />
         ) : (
-          <div className="p-8 text-center border rounded-2xl border-slate-200 dark:border-slate-800">
-            <h3 className="text-xl font-bold mb-2">Resume / CV Details</h3>
-            <p className="text-slate-500">Resume overview details go here.</p>
-          </div>
+          <ResumeSection theme={theme} />
         )}
       </div>
     </section>
