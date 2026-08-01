@@ -43,7 +43,7 @@ const ContactSection = ({ formCardVisible, theme }) => {
               {/* Email & LinkedIn Action Buttons */}
               <div className="flex flex-wrap gap-3 pt-2">
                 <a
-                  href="mailto:trishnasharma9871@gmail.com"
+                  href="mailto:trishnasharma2002@gmail.com"
                   className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold border transition-all ${
                     theme === 'light'
                       ? 'border-neutral-300 bg-neutral-100 text-neutral-dark hover:bg-white shadow-sm'
@@ -79,7 +79,7 @@ const ContactSection = ({ formCardVisible, theme }) => {
                   {/* Name Input */}
                   <div>
                     <label htmlFor="name" className="flex items-center gap-1.5 mb-1.5 text-xs font-semibold uppercase tracking-wider opacity-80">
-                      <span className="text-accent-teal font-mono">//</span> Your Name
+                      <span className="text-accent-teal font-mono"></span> Your Name
                     </label>
                     <input
                       type="text"
@@ -98,7 +98,7 @@ const ContactSection = ({ formCardVisible, theme }) => {
                   {/* Email Input */}
                   <div>
                     <label htmlFor="email" className="flex items-center gap-1.5 mb-1.5 text-xs font-semibold uppercase tracking-wider opacity-80">
-                      <span className="text-accent-teal font-mono">//</span> Your Email
+                      <span className="text-accent-teal font-mono"></span> Your Email
                     </label>
                     <input
                       type="email"
@@ -118,7 +118,7 @@ const ContactSection = ({ formCardVisible, theme }) => {
                 {/* Message Input */}
                 <div>
                   <label htmlFor="message" className="flex items-center gap-1.5 mb-1.5 text-xs font-semibold uppercase tracking-wider opacity-80">
-                    <span className="text-accent-teal font-mono">//</span> Message
+                    <span className="text-accent-teal font-mono"></span> Message
                   </label>
                   <textarea
                     id="message"
