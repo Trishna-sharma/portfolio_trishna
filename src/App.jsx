@@ -56,12 +56,12 @@ function App() {
     });
   };
 
-  // 🛠️ Simplified Scroll Listener: Removed showLongText and subjectBoxesVisible
+  // 🛠️ Scroll Listener for Contact Form Visibility
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
 
-      if (scrollPosition > (window.innerHeight * 1.2)) {
+      if (scrollPosition > (window.innerHeight * 0.8)) {
         if (!formCardVisible) setFormCardVisible(true);
       } else {
         if (formCardVisible) setFormCardVisible(false);
@@ -112,21 +112,23 @@ function App() {
         theme={theme}
       />
       
-      <main className="w-full flex-grow pt-20 md:pt-24">
-        {/* Hero Section (No glitchy props) */}
-        <HeroSection theme={theme} />
+      <main className="w-full flex-grow pt-16 md:pt-20">
         
-        {/* Tab Navigation (Resume / Projects toggle) */}
-        <TabNavigation 
-          theme={theme} 
-          projects={projects} 
-          handleSubjectClick={handleSubjectClick} 
-        />
+        {/* HERO & TABS WRAPPER: Grouped tightly to fix mobile vertical gap */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-8 py-6 flex flex-col gap-6">
+          <HeroSection theme={theme} />
+          
+          <TabNavigation 
+            theme={theme} 
+            projects={projects} 
+            handleSubjectClick={handleSubjectClick} 
+          />
+        </div>
 
         {/* Contact Section */}
         <ContactSection formCardVisible={formCardVisible} theme={theme} />
         
-        </main>
+      </main>
       
       <GoToTopButton theme={theme} />
     </div>
