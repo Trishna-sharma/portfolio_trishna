@@ -10,7 +10,10 @@ import {
   FaBug,
   FaEnvelope,
   FaMapMarkerAlt,
-  FaGlobeAmericas
+  FaGlobeAmericas,
+  FaLinkedin,
+  FaGithub,
+  FaPaperPlane
 } from 'react-icons/fa';
 
 const ResumeSection = ({ theme }) => {
@@ -106,11 +109,11 @@ const ResumeSection = ({ theme }) => {
       {/* 🔹 Main Grid Container */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
-        {/* LEFT COLUMN: Experience & Education */}
-        <div className="lg:col-span-7 flex flex-col gap-6">
+        {/* LEFT COLUMN: Experience, Education & Let's Connect */}
+        <div className="lg:col-span-6 flex flex-col gap-6">
           
           {/* WORK EXPERIENCE */}
-          {showSection('Experience') && (
+          {(showSection('Experience') || activeFilter === 'All') && (
             <motion.div 
               layout 
               initial={{ opacity: 0, y: 10 }} 
@@ -167,7 +170,7 @@ const ResumeSection = ({ theme }) => {
           )}
 
           {/* EDUCATION */}
-          {showSection('Education') && (
+          {(showSection('Education') || activeFilter === 'All') && (
             <motion.div 
               layout 
               initial={{ opacity: 0, y: 10 }} 
@@ -204,13 +207,70 @@ const ResumeSection = ({ theme }) => {
               </div>
             </motion.div>
           )}
+
+          {/* 🔹 LET'S CONNECT CARD (Replaces Form & Balances Left Side) */}
+          <motion.div 
+            layout
+            initial={{ opacity: 0, y: 10 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            className={`p-6 rounded-2xl border flex flex-col gap-4 ${
+              theme === 'light' 
+                ? 'bg-gradient-to-br from-purple-50/50 to-slate-50 border-purple-200/60' 
+                : 'bg-gradient-to-br from-purple-900/10 to-slate-800/40 border-purple-500/20'
+            }`}
+          >
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400">
+                <FaPaperPlane className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold">Let's Connect</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Open for QA testing and development opportunities.</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-2.5 text-xs pt-2">
+              <a 
+                href="mailto:Trishnasharma2002@gmail.com" 
+                className={`flex items-center justify-between p-3 rounded-xl border transition-all ${
+                  theme === 'light' 
+                    ? 'bg-white border-slate-200 hover:border-purple-300 shadow-sm' 
+                    : 'bg-slate-900/60 border-slate-700/80 hover:border-purple-500/50'
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <FaEnvelope className="text-purple-500 w-4 h-4" />
+                  <span className="font-medium text-slate-700 dark:text-slate-200">Trishnasharma2002@gmail.com</span>
+                </div>
+                <span className="text-[10px] font-semibold text-purple-600 dark:text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-md">Send Email</span>
+              </a>
+
+              <a 
+                href="https://trishna-shil-mou.vercel.app/" 
+                target="_blank" 
+                rel="noreferrer"
+                className={`flex items-center justify-between p-3 rounded-xl border transition-all ${
+                  theme === 'light' 
+                    ? 'bg-white border-slate-200 hover:border-purple-300 shadow-sm' 
+                    : 'bg-slate-900/60 border-slate-700/80 hover:border-purple-500/50'
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <FaGlobeAmericas className="text-purple-500 w-4 h-4" />
+                  <span className="font-medium text-slate-700 dark:text-slate-200">trishna-shil-mou.vercel.app</span>
+                </div>
+                <span className="text-[10px] font-semibold text-purple-600 dark:text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-md">Visit</span>
+              </a>
+            </div>
+          </motion.div>
+
         </div>
 
         {/* RIGHT COLUMN: Specializations, Tech Stack, Skills, Languages */}
-        <div className="lg:col-span-5 flex flex-col gap-6">
+        <div className="lg:col-span-6 flex flex-col gap-6">
           
           {/* SPECIALIZATIONS */}
-          {showSection('Specializations') && (
+          {(showSection('Specializations') || activeFilter === 'All') && (
             <motion.div 
               layout 
               initial={{ opacity: 0, y: 10 }} 
@@ -248,7 +308,7 @@ const ResumeSection = ({ theme }) => {
           )}
 
           {/* TECH STACK */}
-          {showSection('Tech Stack') && (
+          {(showSection('Tech Stack') || activeFilter === 'All') && (
             <motion.div 
               layout 
               initial={{ opacity: 0, y: 10 }} 
@@ -307,7 +367,7 @@ const ResumeSection = ({ theme }) => {
           )}
 
           {/* SKILLS */}
-          {showSection('Skills') && (
+          {(showSection('Skills') || activeFilter === 'All') && (
             <motion.div 
               layout 
               initial={{ opacity: 0, y: 10 }} 
@@ -350,7 +410,7 @@ const ResumeSection = ({ theme }) => {
           )}
 
           {/* LANGUAGES */}
-          {showSection('All') && (
+          {(showSection('All')) && (
             <motion.div 
               layout 
               initial={{ opacity: 0, y: 10 }} 
