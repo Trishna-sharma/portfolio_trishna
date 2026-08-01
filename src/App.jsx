@@ -10,12 +10,9 @@ import myLogo from './assets/images/My_logo.png';
 import { projects } from './data/projects';
 
 function App() {
-  // Theme state setup
   const getInitialTheme = () => {
     const storedTheme = localStorage.getItem('theme');
-    if (storedTheme) {
-      return storedTheme;
-    }
+    if (storedTheme) return storedTheme;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   };
 
@@ -25,7 +22,6 @@ function App() {
   const [loadingSpinnerVisible, setLoadingSpinnerVisible] = useState(false);
   const [projectDetailsContent, setProjectDetailsContent] = useState(null);
 
-  // Apply dark/light theme class to <html>
   useEffect(() => {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
@@ -35,33 +31,9 @@ function App() {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  // Handle system preference changes
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = (e) => {
-      if (!localStorage.getItem('theme')) {
-        setTheme(e.matches ? 'dark' : 'light');
-      }
-    };
-
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => {
-      const newTheme = prevTheme === 'light' ? 'dark' : 'light';
-      localStorage.setItem('theme', newTheme);
-      return newTheme;
-    });
-  };
-
-  // 🛠️ Scroll Listener for Contact Form Visibility
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-
-      if (scrollPosition > (window.innerHeight * 0.8)) {
+      if (window.scrollY > (window.innerHeight * 0.8)) {
         if (!formCardVisible) setFormCardVisible(true);
       } else {
         if (formCardVisible) setFormCardVisible(false);
@@ -69,7 +41,6 @@ function App() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [formCardVisible]);
 
@@ -94,13 +65,12 @@ function App() {
 
   const handleCloseOverlay = () => {
     setOverlayVisible(false);
-    setTimeout(() => {
-      setProjectDetailsContent(null);
-    }, 300);
+    setTimeout(() => setProjectDetailsContent(null), 300);
   };
 
   return (
-    <div className={`min-h-screen flex flex-col font-sans ${theme === 'light' ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'}`}>
+    /* overflow-x-hidden prevents ANY side scrolling across the whole app */
+    <div className={`min-h-screen w-full overflow-x-hidden flex flex-col font-sans ${theme === 'light' ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'}`}>
       <Navbar myLogo={myLogo} theme={theme} toggleTheme={toggleTheme} />
       
       {loadingSpinnerVisible && <LoadingSpinner theme={theme} />}
@@ -112,22 +82,21 @@ function App() {
         theme={theme}
       />
       
-      <main className="w-full flex-grow pt-16 md:pt-20">
-        
-        {/* HERO & TABS WRAPPER: Grouped tightly to fix mobile vertical gap */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-8 py-6 flex flex-col gap-6">
+      <main className="w-full flex-grow pt-16 md:pt-20 overflow-x-hidden">
+        {/* Main Content Container with controlled widths */}
+        <div className="w-full max-w-4xl mx-auto px-4 sm:px-8 py-4 flex flex-col items-center gap-4">
           <HeroSection theme={theme} />
           
-          <TabNavigation 
-            theme={theme} 
-            projects={projects} 
-            handleSubjectClick={handleSubjectClick} 
-          />
+          <div className="w-full max-w-full overflow-hidden">
+            <TabNavigation 
+              theme={theme} 
+              projects={projects} 
+              handleSubjectClick={handleSubjectClick} 
+            />
+          </div>
         </div>
 
-        {/* Contact Section */}
         <ContactSection formCardVisible={formCardVisible} theme={theme} />
-        
       </main>
       
       <GoToTopButton theme={theme} />
