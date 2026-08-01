@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   FaBriefcase, 
   FaGraduationCap, 
@@ -7,7 +7,10 @@ import {
   FaCheckCircle, 
   FaGlobe, 
   FaTools, 
-  FaBug 
+  FaBug,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaGlobeAmericas
 } from 'react-icons/fa';
 
 const ResumeSection = ({ theme }) => {
@@ -22,14 +25,62 @@ const ResumeSection = ({ theme }) => {
     'Education'
   ];
 
-  // Helper to determine whether a section should be displayed based on active filter
   const showSection = (sectionName) => {
     return activeFilter === 'All' || activeFilter === sectionName;
   };
 
   return (
-    <div className="w-full flex flex-col gap-8 text-left">
-      
+    <motion.div 
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="w-full flex flex-col gap-6 text-left"
+    >
+      {/* 🔹 TOP CV HERO HEADER CARD */}
+      <div className={`p-6 sm:p-8 rounded-2xl border ${
+        theme === 'light' 
+          ? 'bg-slate-50 border-slate-200' 
+          : 'bg-slate-800/40 border-slate-700/60'
+      }`}>
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+              Trishna Sharma
+            </h1>
+            <p className="text-purple-600 dark:text-purple-400 font-semibold text-sm sm:text-base mt-1">
+              QA Automation Tester & Front-End Developer
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2 sm:gap-3 text-xs">
+            <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border ${
+              theme === 'light' ? 'bg-white border-slate-200 text-slate-600 shadow-sm' : 'bg-slate-900/60 border-slate-700 text-slate-300'
+            }`}>
+              <FaMapMarkerAlt className="text-purple-500" /> Ras-al-Khaimah, UAE
+            </span>
+            <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border ${
+              theme === 'light' ? 'bg-white border-slate-200 text-slate-600 shadow-sm' : 'bg-slate-900/60 border-slate-700 text-slate-300'
+            }`}>
+              <FaEnvelope className="text-purple-500" /> Trishnasharma2002@gmail.com
+            </span>
+            <a 
+              href="https://trishna-shil-mou.vercel.app/" 
+              target="_blank" 
+              rel="noreferrer"
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border hover:border-purple-500 transition-colors ${
+                theme === 'light' ? 'bg-white border-slate-200 text-slate-600 shadow-sm' : 'bg-slate-900/60 border-slate-700 text-slate-300'
+              }`}
+            >
+              <FaGlobeAmericas className="text-purple-500" /> Portfolio Site
+            </a>
+          </div>
+        </div>
+
+        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-4xl">
+          Reliable and thorough QA tester specializing in web and mobile application testing. Combines strong manual testing skills with basic automation experience to deliver fast, accurate bug reports. Focused on helping clients launch smooth, user-friendly software on time.
+        </p>
+      </div>
+
       {/* 🔹 Filter Navigation Pills */}
       <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 pb-2">
         {filters.map((filter) => {
@@ -334,7 +385,7 @@ const ResumeSection = ({ theme }) => {
         </div>
 
       </div>
-    </div>
+    </motion.div>
   );
 };
 

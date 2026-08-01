@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import LoadingSpinner from './components/LoadingSpinner';
 import HeroSection from './components/HeroSection';
@@ -10,7 +11,6 @@ import myLogo from './assets/images/My_logo.png';
 import { projects } from './data/projects';
 
 function App() {
-  // Theme state setup
   const getInitialTheme = () => {
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme) {
@@ -20,12 +20,12 @@ function App() {
   };
 
   const [theme, setTheme] = useState(getInitialTheme);
+  const [activeTab, setActiveTab] = useState('projects'); // State lifted to control HeroSection visibility
   const [formCardVisible, setFormCardVisible] = useState(false);
   const [overlayVisible, setOverlayVisible] = useState(false);
   const [loadingSpinnerVisible, setLoadingSpinnerVisible] = useState(false);
   const [projectDetailsContent, setProjectDetailsContent] = useState(null);
 
-  // Apply dark/light theme class to <html>
   useEffect(() => {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
@@ -35,7 +35,6 @@ function App() {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  // Handle system preference changes
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handleChange = (e) => {
@@ -56,12 +55,11 @@ function App() {
     });
   };
 
-  // 🛠️ Scroll Listener for Contact Form Visibility
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
 
-      if (scrollPosition > (window.innerHeight * 0.8)) {
+      if (scrollPosition > window.innerHeight * 0.8) {
         if (!formCardVisible) setFormCardVisible(true);
       } else {
         if (formCardVisible) setFormCardVisible(false);
@@ -69,7 +67,7 @@ function App() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); 
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [formCardVisible]);
 
@@ -100,39 +98,52 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen w-full max-w-full overflow-x-hidden flex flex-col font-sans ${theme === 'light' ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'}`}>
+    <div className={`min-h-screen w-full max-w-full overflow-x-hidden flex flex-col font-sans transition-colors duration-300 ${
+      theme === 'light' ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'
+    }`}>
       <Navbar myLogo={myLogo} theme={theme} toggleTheme={toggleTheme} />
-      
+
       {loadingSpinnerVisible && <LoadingSpinner theme={theme} />}
-      
-      <ProjectOverlay 
-        overlayVisible={overlayVisible} 
-        handleCloseOverlay={handleCloseOverlay} 
-        projectDetailsContent={projectDetailsContent} 
+
+      <ProjectOverlay
+        overlayVisible={overlayVisible}
+        handleCloseOverlay={handleCloseOverlay}
+        projectDetailsContent={projectDetailsContent}
         theme={theme}
       />
-      
-      {/* Main viewport with strict horizontal clipping */}
+
       <main className="w-full max-w-full flex-grow pt-16 md:pt-20 overflow-x-hidden">
-        
-        {/* HERO & TABS WRAPPER: Expanded width to max-w-6xl for better desktop alignment */}
-        <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 md:px-12 py-4 flex flex-col items-stretch gap-6 overflow-hidden">
-          <HeroSection theme={theme} />
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 md:px-12 py-4 flex flex-col items-stretch gap-4 transition-all duration-500">
           
+          {/* 🔹 Smoothly collapse and hide HeroSection when activeTab === 'resume' */}
+          <AnimatePresence initial={false}>
+            {activeTab === 'projects' && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
+                className="overflow-hidden"
+              >
+                <HeroSection theme={theme} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
           <div className="w-full max-w-full">
-            <TabNavigation 
-              theme={theme} 
-              projects={projects} 
-              handleSubjectClick={handleSubjectClick} 
+            <TabNavigation
+              theme={theme}
+              projects={projects}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+              handleSubjectClick={handleSubjectClick}
             />
           </div>
         </div>
 
-        {/* Contact Section */}
         <ContactSection formCardVisible={formCardVisible} theme={theme} />
-        
       </main>
-      
+
       <GoToTopButton theme={theme} />
     </div>
   );

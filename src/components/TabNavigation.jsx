@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { FaDownload } from 'react-icons/fa';
 import MyWorkSection from './MyWorkSection';
 import ResumeSection from './ResumeSection';
 import cvFile from '../assets/images/CV_QA.pdf';
 
-const TabNavigation = ({ theme, projects, handleSubjectClick, subjectBoxesVisible }) => {
-  const [activeTab, setActiveTab] = useState('projects');
+const TabNavigation = ({ theme, projects, activeTab, setActiveTab, handleSubjectClick, subjectBoxesVisible }) => {
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
-    <section className="py-4 w-full">
+    <section className="py-2 w-full">
       {/* Tab Bar Container */}
-      <div className={`flex flex-col md:flex-row items-center justify-between p-4 sm:p-5 rounded-2xl mb-8 border backdrop-blur-md transition-colors gap-4 ${
+      <div className={`flex flex-col md:flex-row items-center justify-between p-4 sm:p-5 rounded-2xl mb-6 border backdrop-blur-md transition-colors gap-4 ${
         theme === 'light' 
           ? 'bg-slate-100/80 border-slate-200' 
           : 'bg-slate-800/50 border-slate-700/60'
@@ -20,7 +24,7 @@ const TabNavigation = ({ theme, projects, handleSubjectClick, subjectBoxesVisibl
           Switch tabs below to view my CV or explore my project portfolio.
         </p>
 
-        {/* Controls Container with Wrapping */}
+        {/* Controls Container */}
         <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3 w-full md:w-auto">
           {/* Segmented Tab Controls */}
           <div className={`p-1 rounded-xl border flex items-center gap-1 relative ${
@@ -29,7 +33,7 @@ const TabNavigation = ({ theme, projects, handleSubjectClick, subjectBoxesVisibl
               : 'bg-slate-900/70 border-slate-700/50'
           }`}>
             <button
-              onClick={() => setActiveTab('resume')}
+              onClick={() => handleTabChange('resume')}
               className={`relative px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-colors z-10 ${
                 activeTab === 'resume' 
                   ? 'text-purple-600 dark:text-blue-400' 
@@ -49,7 +53,7 @@ const TabNavigation = ({ theme, projects, handleSubjectClick, subjectBoxesVisibl
             </button>
 
             <button
-              onClick={() => setActiveTab('projects')}
+              onClick={() => handleTabChange('projects')}
               className={`relative px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-colors z-10 ${
                 activeTab === 'projects' 
                   ? 'text-purple-600 dark:text-blue-400' 
@@ -85,7 +89,7 @@ const TabNavigation = ({ theme, projects, handleSubjectClick, subjectBoxesVisibl
         </div>
       </div>
 
-      {/* Render selected view */}
+      {/* View Switcher */}
       <div>
         {activeTab === 'projects' ? (
           <MyWorkSection 
