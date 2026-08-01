@@ -37,7 +37,7 @@ const ResumeSection = ({ theme }) => {
       transition={{ duration: 0.4 }}
       className="w-full flex flex-col gap-6 text-left"
     >
-      {/* 🔹 TOP CV HERO HEADER CARD */}
+      {/* 🔹 TOP CV HERO HEADER CARD (Duplicate links removed) */}
       <div className={`p-6 sm:p-8 rounded-2xl border ${
         theme === 'light' 
           ? 'bg-slate-50 border-slate-200' 
@@ -53,8 +53,8 @@ const ResumeSection = ({ theme }) => {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2 sm:gap-3 text-xs">
-            {/* 🟢 Live Availability Pill integrated here */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs">
+            {/* 🟢 Live Status Pill */}
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium border border-emerald-500/20 shadow-sm">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -68,21 +68,6 @@ const ResumeSection = ({ theme }) => {
             }`}>
               <FaMapMarkerAlt className="text-purple-500" /> Ras-al-Khaimah, UAE
             </span>
-            <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border ${
-              theme === 'light' ? 'bg-white border-slate-200 text-slate-600 shadow-sm' : 'bg-slate-900/60 border-slate-700 text-slate-300'
-            }`}>
-              <FaEnvelope className="text-purple-500" /> Trishnasharma2002@gmail.com
-            </span>
-            <a 
-              href="https://trishna-shil-mou.vercel.app/" 
-              target="_blank" 
-              rel="noreferrer"
-              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border hover:border-purple-500 transition-colors ${
-                theme === 'light' ? 'bg-white border-slate-200 text-slate-600 shadow-sm' : 'bg-slate-900/60 border-slate-700 text-slate-300'
-              }`}
-            >
-              <FaGlobeAmericas className="text-purple-500" /> Portfolio
-            </a>
           </div>
         </div>
 
@@ -373,7 +358,7 @@ const ResumeSection = ({ theme }) => {
             </motion.div>
           )}
 
-          {/* LET'S CONNECT CARD */}
+          {/* 🔹 LET'S CONNECT CARD (Single primary instance at the bottom) */}
           <motion.div 
             layout
             initial={{ opacity: 0, y: 10 }} 
