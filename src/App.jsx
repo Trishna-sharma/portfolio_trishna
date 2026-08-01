@@ -100,7 +100,6 @@ function App() {
   };
 
   return (
-    /* Added overflow-x-hidden & max-w-full to root container */
     <div className={`min-h-screen w-full max-w-full overflow-x-hidden flex flex-col font-sans ${theme === 'light' ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'}`}>
       <Navbar myLogo={myLogo} theme={theme} toggleTheme={toggleTheme} />
       
@@ -116,8 +115,8 @@ function App() {
       {/* Main viewport with strict horizontal clipping */}
       <main className="w-full max-w-full flex-grow pt-16 md:pt-20 overflow-x-hidden">
         
-        {/* HERO & TABS WRAPPER: Width capped & padding safe */}
-        <div className="w-full max-w-4xl mx-auto px-4 sm:px-8 py-4 flex flex-col items-center gap-4 overflow-hidden">
+        {/* HERO & TABS WRAPPER: Expanded width to max-w-6xl for better desktop alignment */}
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 md:px-12 py-4 flex flex-col items-stretch gap-6 overflow-hidden">
           <HeroSection theme={theme} />
           
           <div className="w-full max-w-full">
