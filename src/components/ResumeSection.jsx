@@ -11,9 +11,7 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
   FaGlobeAmericas,
-  FaPaperPlane,
-  FaLinkedin,
-  FaGithub
+  FaPaperPlane
 } from 'react-icons/fa';
 
 const ResumeSection = ({ theme }) => {
@@ -56,6 +54,15 @@ const ResumeSection = ({ theme }) => {
           </div>
 
           <div className="flex flex-wrap gap-2 sm:gap-3 text-xs">
+            {/* 🟢 Live Availability Pill integrated here */}
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium border border-emerald-500/20 shadow-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              Available for new projects
+            </span>
+
             <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border ${
               theme === 'light' ? 'bg-white border-slate-200 text-slate-600 shadow-sm' : 'bg-slate-900/60 border-slate-700 text-slate-300'
             }`}>
@@ -366,7 +373,7 @@ const ResumeSection = ({ theme }) => {
             </motion.div>
           )}
 
-          {/* 🔹 LET'S CONNECT CARD (NO INPUT FORM - PLACED DIRECTLY BELOW LANGUAGES TO FILL EMPTY SPACE) */}
+          {/* LET'S CONNECT CARD */}
           <motion.div 
             layout
             initial={{ opacity: 0, y: 10 }} 
@@ -383,7 +390,7 @@ const ResumeSection = ({ theme }) => {
               </div>
               <div>
                 <h3 className="text-xl font-bold">Let's Connect</h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400">Open for QA Testing & Web Development roles.</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Reach out for QA testing or Web Development roles.</p>
               </div>
             </div>
 
