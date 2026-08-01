@@ -100,7 +100,8 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen flex flex-col font-sans ${theme === 'light' ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'}`}>
+    /* Added overflow-x-hidden & max-w-full to root container */
+    <div className={`min-h-screen w-full max-w-full overflow-x-hidden flex flex-col font-sans ${theme === 'light' ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'}`}>
       <Navbar myLogo={myLogo} theme={theme} toggleTheme={toggleTheme} />
       
       {loadingSpinnerVisible && <LoadingSpinner theme={theme} />}
@@ -112,17 +113,20 @@ function App() {
         theme={theme}
       />
       
-      <main className="w-full flex-grow pt-16 md:pt-20">
+      {/* Main viewport with strict horizontal clipping */}
+      <main className="w-full max-w-full flex-grow pt-16 md:pt-20 overflow-x-hidden">
         
-        {/* HERO & TABS WRAPPER: Grouped tightly to fix mobile vertical gap */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-8 py-6 flex flex-col gap-6">
+        {/* HERO & TABS WRAPPER: Width capped & padding safe */}
+        <div className="w-full max-w-4xl mx-auto px-4 sm:px-8 py-4 flex flex-col items-center gap-4 overflow-hidden">
           <HeroSection theme={theme} />
           
-          <TabNavigation 
-            theme={theme} 
-            projects={projects} 
-            handleSubjectClick={handleSubjectClick} 
-          />
+          <div className="w-full max-w-full">
+            <TabNavigation 
+              theme={theme} 
+              projects={projects} 
+              handleSubjectClick={handleSubjectClick} 
+            />
+          </div>
         </div>
 
         {/* Contact Section */}
