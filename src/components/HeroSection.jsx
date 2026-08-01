@@ -21,13 +21,13 @@ const HeroSection = ({ theme }) => {
   }, [roles.length]);
 
   const textVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 15 },
     visible: (i) => ({
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.12,
-        duration: 0.5,
+        delay: i * 0.1,
+        duration: 0.4,
         ease: "easeOut",
       },
     }),
@@ -37,7 +37,7 @@ const HeroSection = ({ theme }) => {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.08,
       },
     },
   };
@@ -45,7 +45,7 @@ const HeroSection = ({ theme }) => {
   return (
     <section
       id="home"
-      className={`min-h-[80vh] flex flex-col justify-center items-start px-5 sm:px-12 md:px-16 py-10 sm:py-16 md:py-20 relative overflow-hidden transition-colors ${
+      className={`w-full max-w-full py-4 relative overflow-hidden transition-colors ${
         theme === 'light' ? 'bg-white text-slate-800' : 'bg-slate-900 text-slate-100'
       }`}
     >
@@ -59,7 +59,7 @@ const HeroSection = ({ theme }) => {
         <motion.div
           custom={0}
           variants={textVariants}
-          className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-4 border ${
+          className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-3 border ${
             theme === 'light'
               ? 'bg-purple-50 border-purple-200 text-purple-700'
               : 'bg-purple-950/40 border-purple-500/30 text-purple-300'
@@ -73,7 +73,7 @@ const HeroSection = ({ theme }) => {
         <motion.span
           custom={1}
           variants={textVariants}
-          className={`block text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-1 ${
+          className={`block text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-1 ${
             theme === 'light' ? 'text-slate-800' : 'text-slate-100'
           }`}
         >
@@ -84,7 +84,7 @@ const HeroSection = ({ theme }) => {
         <motion.span
           custom={2}
           variants={textVariants}
-          className={`block text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-3 ${
+          className={`block text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-2 ${
             theme === 'light' ? 'text-slate-800' : 'text-slate-100'
           }`}
         >
@@ -95,20 +95,20 @@ const HeroSection = ({ theme }) => {
         <motion.div
           custom={3}
           variants={textVariants}
-          className={`text-2xl sm:text-4xl md:text-5xl font-semibold mb-5 flex flex-wrap items-center gap-x-2.5 ${
+          className={`text-xl sm:text-3xl md:text-4xl font-semibold mb-4 flex flex-wrap items-center gap-x-2 ${
             theme === 'light' ? 'text-slate-700' : 'text-slate-200'
           }`}
         >
           <span>a</span>
           
-          <div className="relative overflow-hidden inline-flex items-center h-9 sm:h-12 md:h-14">
+          <div className="relative overflow-hidden inline-flex items-center h-8 sm:h-10">
             <AnimatePresence mode="wait">
               <motion.span
                 key={roles[index]}
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 15, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -20, opacity: 0 }}
-                transition={{ duration: 0.35, ease: "easeInOut" }}
+                exit={{ y: -15, opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
                 className={`inline-block font-bold ${
                   theme === 'light' ? 'text-purple-600' : 'text-purple-400'
                 }`}
@@ -123,7 +123,7 @@ const HeroSection = ({ theme }) => {
         <motion.p
           custom={4}
           variants={textVariants}
-          className={`text-sm sm:text-base md:text-lg leading-relaxed max-w-xl ${
+          className={`text-xs sm:text-base leading-relaxed max-w-xl ${
             theme === 'light' ? 'text-slate-600' : 'text-slate-300'
           }`}
         >
