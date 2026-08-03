@@ -2,43 +2,57 @@ import React, { useState } from 'react';
 import { FaGithub, FaExternalLinkAlt, FaSearch } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
-// 4 Focused Portfolio Projects
+// 4 Focused Portfolio Projects with Minimal Status Badges
 const portfolioProjects = [
   {
     id: 'her-by-mou',
     title: 'Her By Mou Website',
     category: 'Web & API Testing',
     categoryTag: 'WEB DEVELOPMENT',
-    description: 'An elegant e-commerce brand platform built with responsive modern web standards. Features custom UI components, smooth navigation, and optimized media rendering.',
+    status: 'In Dev',
+    statusColor: 'text-amber-500 bg-amber-500/10 border-amber-500/20',
+    description:
+      'An elegant e-commerce brand platform built with responsive modern web standards. Features custom UI components, smooth navigation, and optimized media rendering.',
     tags: ['React', 'Tailwind CSS', 'JavaScript', 'Vercel'],
-    github: 'https://github.com/Trishna-sharma/Her', // Replace with your actual GitHub link
-    demo: 'https://her-by-mou-frontend.vercel.app/', // Replace with live link
+    github: 'https://github.com/Trishna-sharma/Her',
+    demo: 'https://her-by-mou-frontend.vercel.app/',
   },
   {
     id: 'journal-app',
     title: 'JournalApp Digital Platform',
     category: 'Web Testing',
     categoryTag: 'FULL-STACK WEB APP',
-    description: 'A full-stack digital journaling platform allowing users to securely capture daily entries, organize thoughts, and track moods with rich content features.',
+    status: 'Completed',
+    statusColor: 'text-emerald-500 bg-emerald-500/10 border-emerald-500/20',
+    description:
+      'A full-stack digital journaling platform allowing users to securely capture daily entries, organize thoughts, and track moods with rich content features.',
     tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
-    github: 'https://github.com/Trishna-sharma/JournalApp', // Replace with your actual GitHub link
-    demo: 'https://journal-app-lilac-seven.vercel.app/', // Replace with live link
+    github: 'https://github.com/Trishna-sharma/JournalApp',
+    demo: 'https://journal-app-lilac-seven.vercel.app/',
   },
   {
     id: 'playwright-automation',
     title: 'Playwright Test Automation Hub',
     category: 'Web & API Testing',
     categoryTag: 'WEB & API TESTING',
-    description: 'A professional-grade end-to-end testing framework leveraging Playwright and TypeScript. Features automated visual regression, API mock harnesses, and parallel execution.',
+    status: 'Just Started',
+    statusColor: 'text-blue-500 bg-blue-500/10 border-blue-500/20',
+    description:
+      'A professional-grade end-to-end testing framework leveraging Playwright and TypeScript. Features automated visual regression, API mock harnesses, and parallel execution.',
     tags: ['Playwright', 'TypeScript', 'Cucumber', 'GitHub Actions'],
+    github: 'https://github.com/Trishna-sharma',
   },
   {
     id: 'cypress-quality-gate',
     title: 'Cypress CI/CD Quality Gate',
     category: 'Web Testing',
     categoryTag: 'WEB TESTING',
-    description: 'A continuous integration dashboard and E2E regression suite using Cypress. Includes custom plugins for visual accessibility validation and build pipeline integration.',
+    status: 'Planning',
+    statusColor: 'text-purple-500 bg-purple-500/10 border-purple-500/20',
+    description:
+      'A continuous integration dashboard and E2E regression suite using Cypress. Includes custom plugins for visual accessibility validation and build pipeline integration.',
     tags: ['Cypress', 'JavaScript', 'Axe-core', 'CI/CD'],
+    github: 'https://github.com/Trishna-sharma',
   },
 ];
 
@@ -115,7 +129,7 @@ function MyWorkSection({ theme }) {
         </div>
       </div>
 
-      {/* 2x2 Project Grid (Matching Reference Design) */}
+      {/* 2x2 Project Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {filteredProjects.map((project) => (
           <motion.div
@@ -130,10 +144,19 @@ function MyWorkSection({ theme }) {
             }`}
           >
             <div>
-              {/* Category Tag Badge */}
-              <span className="inline-block px-2.5 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase bg-purple-500/10 text-purple-600 dark:text-purple-400 mb-3 border border-purple-500/20">
-                {project.categoryTag}
-              </span>
+              {/* Category Tag & Minimal Status Badge */}
+              <div className="flex items-center justify-between mb-3">
+                <span className="inline-block px-2.5 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
+                  {project.categoryTag}
+                </span>
+
+                <span
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-medium border ${project.statusColor}`}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-current"></span>
+                  {project.status}
+                </span>
+              </div>
 
               {/* Title */}
               <h3 className="text-xl font-bold mb-2.5 text-slate-900 dark:text-white">
@@ -185,8 +208,8 @@ function MyWorkSection({ theme }) {
                   <FaExternalLinkAlt className="w-3 h-3" />
                 </a>
               ) : (
-                <span className="text-slate-400 dark:text-slate-600 text-xs">
-                  Internal Test Suite
+                <span className="text-slate-400 dark:text-slate-500 text-xs italic">
+                  Demo Coming Soon
                 </span>
               )}
             </div>
