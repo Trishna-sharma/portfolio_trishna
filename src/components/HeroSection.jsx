@@ -128,7 +128,7 @@ const HeroSection = ({ theme }) => {
           }`}
         >
           I craft innovative and user-centric digital experiences, from concept to deployment. 
-          Check out my latest full-stack project, JournalApp!
+          Let me know if you have a project in mind!!
         </motion.p>
       </motion.div>
     </section>
