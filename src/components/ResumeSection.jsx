@@ -8,10 +8,7 @@ import {
   FaGlobe, 
   FaTools, 
   FaBug,
-  FaEnvelope,
-  FaMapMarkerAlt,
-  FaGlobeAmericas,
-  FaPaperPlane
+  FaMapMarkerAlt
 } from 'react-icons/fa';
 
 const ResumeSection = ({ theme }) => {
@@ -37,7 +34,7 @@ const ResumeSection = ({ theme }) => {
       transition={{ duration: 0.4 }}
       className="w-full flex flex-col gap-6 text-left"
     >
-      {/* 🔹 TOP CV HERO HEADER CARD (Duplicate links removed) */}
+      {/* 🔹 TOP CV HERO HEADER CARD */}
       <div className={`p-6 sm:p-8 rounded-2xl border ${
         theme === 'light' 
           ? 'bg-slate-50 border-slate-200' 
@@ -194,7 +191,7 @@ const ResumeSection = ({ theme }) => {
 
         </div>
 
-        {/* RIGHT COLUMN: Specializations, Tech Stack, Skills, Languages & Let's Connect */}
+        {/* RIGHT COLUMN: Specializations, Tech Stack, Skills & Languages */}
         <div className="lg:col-span-5 flex flex-col gap-6">
           
           {/* SPECIALIZATIONS */}
@@ -357,66 +354,6 @@ const ResumeSection = ({ theme }) => {
               </div>
             </motion.div>
           )}
-
-          {/* 🔹 LET'S CONNECT CARD (Single primary instance at the bottom) */}
-          <motion.div 
-            layout
-            initial={{ opacity: 0, y: 10 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            className={`p-6 rounded-2xl border flex flex-col gap-4 ${
-              theme === 'light' 
-                ? 'bg-gradient-to-br from-purple-50/60 to-slate-50 border-purple-200/80' 
-                : 'bg-gradient-to-br from-purple-900/20 to-slate-800/40 border-purple-500/30'
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400">
-                <FaPaperPlane className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">Let's Connect</h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400">Reach out for QA testing or Web Development roles.</p>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-2.5 text-xs pt-2">
-              <a 
-                href="mailto:Trishnasharma2002@gmail.com" 
-                className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${
-                  theme === 'light' 
-                    ? 'bg-white border-slate-200 hover:border-purple-300 shadow-sm' 
-                    : 'bg-slate-900/60 border-slate-700/80 hover:border-purple-500/50'
-                }`}
-              >
-                <div className="flex items-center gap-2.5">
-                  <FaEnvelope className="text-purple-500 w-4 h-4" />
-                  <span className="font-medium text-slate-700 dark:text-slate-200">Trishnasharma2002@gmail.com</span>
-                </div>
-                <span className="text-[11px] font-semibold text-purple-600 dark:text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-md">
-                  Email Me
-                </span>
-              </a>
-
-              <a 
-                href="https://trishna-shil-mou.vercel.app/" 
-                target="_blank" 
-                rel="noreferrer"
-                className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${
-                  theme === 'light' 
-                    ? 'bg-white border-slate-200 hover:border-purple-300 shadow-sm' 
-                    : 'bg-slate-900/60 border-slate-700/80 hover:border-purple-500/50'
-                }`}
-              >
-                <div className="flex items-center gap-2.5">
-                  <FaGlobeAmericas className="text-purple-500 w-4 h-4" />
-                  <span className="font-medium text-slate-700 dark:text-slate-200">trishna-shil-mou.vercel.app</span>
-                </div>
-                <span className="text-[11px] font-semibold text-purple-600 dark:text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-md">
-                  Visit Portfolio
-                </span>
-              </a>
-            </div>
-          </motion.div>
 
         </div>
 
