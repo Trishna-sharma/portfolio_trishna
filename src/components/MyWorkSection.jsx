@@ -11,8 +11,8 @@ const portfolioProjects = [
     categoryTag: 'WEB DEVELOPMENT',
     description: 'An elegant e-commerce brand platform built with responsive modern web standards. Features custom UI components, smooth navigation, and optimized media rendering.',
     tags: ['React', 'Tailwind CSS', 'JavaScript', 'Vercel'],
-    github: 'https://github.com/TrishnaSharma/her-by-mou', // Replace with your actual GitHub link
-    demo: 'https://herbymou.com', // Replace with live link
+    github: 'https://github.com/Trishna-sharma/Her', // Replace with your actual GitHub link
+    demo: 'https://her-by-mou-frontend.vercel.app/', // Replace with live link
   },
   {
     id: 'journal-app',
@@ -21,8 +21,8 @@ const portfolioProjects = [
     categoryTag: 'FULL-STACK WEB APP',
     description: 'A full-stack digital journaling platform allowing users to securely capture daily entries, organize thoughts, and track moods with rich content features.',
     tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
-    github: 'https://github.com/TrishnaSharma/journal-app', // Replace with your actual GitHub link
-    demo: 'https://journalapp.vercel.app', // Replace with live link
+    github: 'https://github.com/Trishna-sharma/JournalApp', // Replace with your actual GitHub link
+    demo: 'https://journal-app-lilac-seven.vercel.app/', // Replace with live link
   },
   {
     id: 'playwright-automation',
@@ -31,8 +31,6 @@ const portfolioProjects = [
     categoryTag: 'WEB & API TESTING',
     description: 'A professional-grade end-to-end testing framework leveraging Playwright and TypeScript. Features automated visual regression, API mock harnesses, and parallel execution.',
     tags: ['Playwright', 'TypeScript', 'Cucumber', 'GitHub Actions'],
-    github: 'https://github.com/TrishnaSharma',
-    demo: null,
   },
   {
     id: 'cypress-quality-gate',
@@ -41,8 +39,6 @@ const portfolioProjects = [
     categoryTag: 'WEB TESTING',
     description: 'A continuous integration dashboard and E2E regression suite using Cypress. Includes custom plugins for visual accessibility validation and build pipeline integration.',
     tags: ['Cypress', 'JavaScript', 'Axe-core', 'CI/CD'],
-    github: 'https://github.com/TrishnaSharma',
-    demo: null,
   },
 ];
 
