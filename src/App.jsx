@@ -5,6 +5,7 @@ import LoadingSpinner from './components/LoadingSpinner';
 import HeroSection from './components/HeroSection';
 import TabNavigation from './components/TabNavigation';
 import ProjectOverlay from './components/ProjectOverlay';
+import Footer from './components/Footer';
 import GoToTopButton from './components/GoToTopButton';
 import myLogo from './assets/images/My_logo.png';
 import { projects } from './data/projects';
@@ -123,6 +124,9 @@ function App() {
           </div>
         </div>
       </main>
+
+      {/* Shared Minimal Footer */}
+      <Footer theme={theme} />
 
       <GoToTopButton theme={theme} />
     </div>
