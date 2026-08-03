@@ -9,7 +9,7 @@ const portfolioProjects = [
     title: 'Her By Mou Website',
     category: 'Web & API Testing',
     categoryTag: 'WEB DEVELOPMENT',
-    status: 'In Dev',
+    status: 'In Progress',
     statusColor: 'text-amber-500 bg-amber-500/10 border-amber-500/20',
     description:
       'An elegant e-commerce brand platform built with responsive modern web standards. Features custom UI components, smooth navigation, and optimized media rendering.',
@@ -35,7 +35,7 @@ const portfolioProjects = [
     title: 'Playwright Test Automation Hub',
     category: 'Web & API Testing',
     categoryTag: 'WEB & API TESTING',
-    status: 'Just Started',
+    status: 'In Progress',
     statusColor: 'text-blue-500 bg-blue-500/10 border-blue-500/20',
     description:
       'A professional-grade end-to-end testing framework leveraging Playwright and TypeScript. Features automated visual regression, API mock harnesses, and parallel execution.',
@@ -47,7 +47,7 @@ const portfolioProjects = [
     title: 'Cypress CI/CD Quality Gate',
     category: 'Web Testing',
     categoryTag: 'WEB TESTING',
-    status: 'Planning',
+    status: 'Just Started',
     statusColor: 'text-purple-500 bg-purple-500/10 border-purple-500/20',
     description:
       'A continuous integration dashboard and E2E regression suite using Cypress. Includes custom plugins for visual accessibility validation and build pipeline integration.',
