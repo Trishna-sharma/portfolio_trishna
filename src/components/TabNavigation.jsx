@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaDownload } from 'react-icons/fa';
 import MyWorkSection from './MyWorkSection';
@@ -6,10 +6,30 @@ import ResumeSection from './ResumeSection';
 import cvFile from '../assets/images/CV_QA.pdf';
 
 const TabNavigation = ({ theme, projects, activeTab, setActiveTab, handleSubjectClick, subjectBoxesVisible }) => {
+  const [isDownloading, setIsDownloading] = useState(false);
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleDownload = () => {
+    if (isDownloading) return;
+    
+    setIsDownloading(true);
+
+    // Trigger file download programmatically
+    const link = document.createElement('a');
+    link.href = cvFile;
+    link.download = 'Trishna_Sharma_QA_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Keep loading state visible for feedback
+    setTimeout(() => {
+      setIsDownloading(false);
+    }, 1500);
   };
 
   return (
@@ -73,19 +93,37 @@ const TabNavigation = ({ theme, projects, activeTab, setActiveTab, handleSubject
             </button>
           </div>
 
-          {/* Download CV Button */}
-          <a
-            href={cvFile}
-            download="Trishna_Sharma_QA_CV.pdf"
-            className={`inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium border transition-all ${
-              theme === 'light'
-                ? 'border-purple-300 bg-white text-purple-600 hover:bg-purple-50 shadow-sm'
-                : 'border-slate-700 bg-slate-800 text-slate-200 hover:bg-slate-700'
-            }`}
-          >
-            <FaDownload className="w-3.5 h-3.5" />
-            <span>Download CV</span>
-          </a>
+          {/* Download CV Button Container */}
+          <div className="flex flex-col items-center">
+            <button
+              onClick={handleDownload}
+              disabled={isDownloading}
+              className={`inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium border transition-all ${
+                theme === 'light'
+                  ? 'border-purple-300 bg-white text-purple-600 hover:bg-purple-50 shadow-sm'
+                  : 'border-slate-700 bg-slate-800 text-slate-200 hover:bg-slate-700'
+              } ${isDownloading ? 'opacity-80 cursor-not-allowed' : ''}`}
+            >
+              <FaDownload className={`w-3.5 h-3.5 ${isDownloading ? 'animate-bounce' : ''}`} />
+              <span>{isDownloading ? 'Downloading...' : 'Download CV'}</span>
+            </button>
+
+            {/* Loading Animation Bar Beneath Button */}
+            {isDownloading && (
+              <div className="w-full h-1 mt-1 bg-purple-900/30 rounded-full overflow-hidden border border-purple-500/20">
+                <motion.div
+                  initial={{ x: '-100%' }}
+                  animate={{ x: '100%' }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 1.1,
+                    ease: 'easeInOut',
+                  }}
+                  className="w-1/2 h-full bg-purple-500 rounded-full shadow-[0_0_8px_rgba(168,85,247,0.8)]"
+                />
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
