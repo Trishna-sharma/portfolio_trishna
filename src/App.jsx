@@ -5,7 +5,6 @@ import LoadingSpinner from './components/LoadingSpinner';
 import HeroSection from './components/HeroSection';
 import TabNavigation from './components/TabNavigation';
 import ProjectOverlay from './components/ProjectOverlay';
-import ContactSection from './components/ContactSection';
 import GoToTopButton from './components/GoToTopButton';
 import myLogo from './assets/images/My_logo.png';
 import { projects } from './data/projects';
@@ -20,8 +19,7 @@ function App() {
   };
 
   const [theme, setTheme] = useState(getInitialTheme);
-  const [activeTab, setActiveTab] = useState('projects'); // State lifted to control HeroSection visibility
-  const [formCardVisible, setFormCardVisible] = useState(false);
+  const [activeTab, setActiveTab] = useState('projects'); 
   const [overlayVisible, setOverlayVisible] = useState(false);
   const [loadingSpinnerVisible, setLoadingSpinnerVisible] = useState(false);
   const [projectDetailsContent, setProjectDetailsContent] = useState(null);
@@ -54,22 +52,6 @@ function App() {
       return newTheme;
     });
   };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-
-      if (scrollPosition > window.innerHeight * 0.8) {
-        if (!formCardVisible) setFormCardVisible(true);
-      } else {
-        if (formCardVisible) setFormCardVisible(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [formCardVisible]);
 
   const handleSubjectClick = (subjectId) => {
     setLoadingSpinnerVisible(true);
@@ -140,8 +122,6 @@ function App() {
             />
           </div>
         </div>
-
-        <ContactSection formCardVisible={formCardVisible} theme={theme} />
       </main>
 
       <GoToTopButton theme={theme} />
