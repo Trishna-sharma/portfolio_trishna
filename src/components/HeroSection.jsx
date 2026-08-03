@@ -45,22 +45,22 @@ const HeroSection = ({ theme }) => {
   return (
     <section
       id="home"
-      className={`w-full py-6 relative overflow-hidden transition-colors ${
+      className={`w-full py-4 relative overflow-hidden transition-colors ${
         theme === 'light' ? 'bg-white text-slate-800' : 'bg-slate-900 text-slate-100'
       }`}
     >
       <motion.div
-        /* Updated width & padding to match MyWorkSection layout */
+        /* Grid alignment matching MyWorkSection while preserving original width */
         className="z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-start justify-center text-left"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        {/* Status Tag to Anchor Top Space */}
+        {/* Status Tag */}
         <motion.div
           custom={0}
           variants={textVariants}
-          className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-4 border ${
+          className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-3 border ${
             theme === 'light'
               ? 'bg-purple-50 border-purple-200 text-purple-700'
               : 'bg-purple-950/40 border-purple-500/30 text-purple-300'
@@ -74,8 +74,8 @@ const HeroSection = ({ theme }) => {
         <motion.span
           custom={1}
           variants={textVariants}
-          className={`block text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-1 ${
-            theme === 'light' ? 'text-slate-900' : 'text-slate-100'
+          className={`block text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-1 ${
+            theme === 'light' ? 'text-slate-800' : 'text-slate-100'
           }`}
         >
           Hey.
@@ -85,8 +85,8 @@ const HeroSection = ({ theme }) => {
         <motion.span
           custom={2}
           variants={textVariants}
-          className={`block text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-2 ${
-            theme === 'light' ? 'text-slate-900' : 'text-slate-100'
+          className={`block text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-2 ${
+            theme === 'light' ? 'text-slate-800' : 'text-slate-100'
           }`}
         >
           I'm <span className={theme === 'light' ? 'text-purple-600' : 'text-purple-400'}>Trishna</span>,
@@ -96,13 +96,13 @@ const HeroSection = ({ theme }) => {
         <motion.div
           custom={3}
           variants={textVariants}
-          className={`text-2xl sm:text-4xl md:text-5xl font-extrabold mb-4 flex flex-wrap items-center gap-x-2 ${
-            theme === 'light' ? 'text-slate-800' : 'text-slate-200'
+          className={`text-xl sm:text-3xl md:text-4xl font-semibold mb-4 flex flex-wrap items-center gap-x-2 ${
+            theme === 'light' ? 'text-slate-700' : 'text-slate-200'
           }`}
         >
           <span>a</span>
           
-          <div className="relative overflow-hidden inline-flex items-center h-8 sm:h-12">
+          <div className="relative overflow-hidden inline-flex items-center h-8 sm:h-10">
             <AnimatePresence mode="wait">
               <motion.span
                 key={roles[index]}
@@ -110,7 +110,7 @@ const HeroSection = ({ theme }) => {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -15, opacity: 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className={`inline-block font-extrabold ${
+                className={`inline-block font-bold ${
                   theme === 'light' ? 'text-purple-600' : 'text-purple-400'
                 }`}
               >
@@ -124,7 +124,7 @@ const HeroSection = ({ theme }) => {
         <motion.p
           custom={4}
           variants={textVariants}
-          className={`text-xs sm:text-base leading-relaxed max-w-2xl ${
+          className={`text-xs sm:text-base leading-relaxed max-w-xl ${
             theme === 'light' ? 'text-slate-600' : 'text-slate-300'
           }`}
         >
