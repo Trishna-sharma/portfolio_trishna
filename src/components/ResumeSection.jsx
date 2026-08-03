@@ -124,7 +124,7 @@ const ResumeSection = ({ theme }) => {
                   <div className="flex flex-wrap items-center justify-between gap-1 mb-1">
                     <h4 className="font-bold text-base text-slate-900 dark:text-white">QA Automation Tester</h4>
                     <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400">
-                      2025 - Present
+                      2025 - 2026
                     </span>
                   </div>
                   <p className="text-xs font-medium text-purple-600 dark:text-purple-400 mb-2">AM Tech | Ras-al-Khaimah, UAE</p>
