@@ -81,7 +81,7 @@ const TabNavigation = ({ theme, projects, activeTab, setActiveTab, handleSubject
               }`}
             >
               Portfolio
-              {activeTab === 'Projects' && (
+              {activeTab === 'projects' && (
                 <motion.div
                   layoutId="activeTabBackground"
                   className={`absolute inset-0 rounded-lg shadow-sm -z-10 ${
