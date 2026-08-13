@@ -46,7 +46,7 @@ const ResumeSection = ({ theme }) => {
               Trishna Sharma
             </h1>
             <p className="text-purple-600 dark:text-purple-400 font-semibold text-sm sm:text-base mt-1">
-              QA Automation Tester & Front-End Developer
+              QA Tester & Full-stack developer
             </p>
           </div>
 
