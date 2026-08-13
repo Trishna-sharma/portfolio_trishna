@@ -77,7 +77,7 @@ function Navbar({ myLogo, theme, toggleTheme, setActiveTab, activeTab = 'project
           <div className="hidden sm:block h-5 w-[1px] bg-slate-300 dark:bg-slate-700"></div>
 
           <a
-            href="https://www.linkedin.com/in/trishna-sharma-fs/"
+            href="https://www.linkedin.com/in/trishna-sharma-7928b8214/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-500 hover:text-purple-600 dark:text-slate-400 dark:hover:text-purple-400 transition-colors"
