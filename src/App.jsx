@@ -84,7 +84,13 @@ function App() {
     <div className={`min-h-screen w-full max-w-full overflow-x-hidden flex flex-col font-sans transition-colors duration-300 ${
       theme === 'light' ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'
     }`}>
-      <Navbar myLogo={myLogo} theme={theme} toggleTheme={toggleTheme} />
+      {/* 1. Pass setActiveTab to Navbar */}
+      <Navbar 
+        myLogo={myLogo} 
+        theme={theme} 
+        toggleTheme={toggleTheme} 
+        setActiveTab={setActiveTab} 
+      />
 
       {loadingSpinnerVisible && <LoadingSpinner theme={theme} />}
 
@@ -98,7 +104,7 @@ function App() {
       <main className="w-full max-w-full flex-grow pt-16 md:pt-20 overflow-x-hidden">
         <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 md:px-12 py-4 flex flex-col items-stretch gap-4 transition-all duration-500">
           
-          {/* 🔹 Smoothly collapse and hide HeroSection when activeTab === 'resume' */}
+          {/* Smoothly collapse and hide HeroSection when activeTab === 'resume' */}
           <AnimatePresence initial={false}>
             {activeTab === 'projects' && (
               <motion.div
@@ -113,7 +119,8 @@ function App() {
             )}
           </AnimatePresence>
 
-          <div className="w-full max-w-full">
+          {/* 2. Added id="projects-section" for direct project tab scrolling */}
+          <div id="projects-section" className="w-full max-w-full scroll-mt-24">
             <TabNavigation
               theme={theme}
               projects={projects}
