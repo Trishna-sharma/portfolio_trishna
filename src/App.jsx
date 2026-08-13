@@ -113,15 +113,15 @@ function App() {
             )}
           </AnimatePresence>
 
-         <div id="tab-navigation" className="w-full max-w-full scroll-mt-24">
-  <TabNavigation
-    theme={theme}
-    projects={projects}
-    activeTab={activeTab}
-    setActiveTab={setActiveTab}
-    handleSubjectClick={handleSubjectClick}
-  />
-</div>
+          <div className="w-full max-w-full">
+            <TabNavigation
+              theme={theme}
+              projects={projects}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+              handleSubjectClick={handleSubjectClick}
+            />
+          </div>
         </div>
       </main>
 
