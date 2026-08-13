@@ -1,29 +1,30 @@
 import React from 'react';
 import { FaLinkedin, FaGithub, FaSun, FaMoon } from 'react-icons/fa';
 
-function Navbar({ myLogo, theme, toggleTheme, setActiveTab }) {
+function Navbar({ myLogo, theme, toggleTheme, setActiveTab, activeTab }) {
 
-  const handleNavClick = (targetTab, scrollToId) => (e) => {
+  // Return to top of portfolio when logo is clicked
+  const handleLogoClick = (e) => {
     e.preventDefault();
-
-    // 1. Switch active tab back to 'projects' if currently on 'resume'
-    if (setActiveTab && targetTab) {
-      setActiveTab(targetTab);
+    if (setActiveTab) {
+      setActiveTab('projects');
     }
-
-    // 2. Wait for React to mount HeroSection into the DOM, then scroll
     setTimeout(() => {
-      if (scrollToId === 'top') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        const element = document.getElementById(scrollToId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 50);
+  };
+
+  // Scroll handler for links on the Projects tab
+  const handleScroll = (id) => (e) => {
+    e.preventDefault();
+    if (id === 'top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
       }
-    }, 100);
+    }
   };
 
   return (
@@ -34,56 +35,49 @@ function Navbar({ myLogo, theme, toggleTheme, setActiveTab }) {
     }`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
         
-        {/* LOGO LINK */}
-        <a 
-          href="#home" 
-          onClick={handleNavClick('projects', 'top')} 
-          className="flex-shrink-0 flex items-center py-2 cursor-pointer"
+        {/* LOGO */}
+        <button 
+          onClick={handleLogoClick} 
+          className="flex-shrink-0 flex items-center py-2 cursor-pointer focus:outline-none"
         >
           <img 
             src={myLogo} 
             alt="Trishna Mou Logo" 
             className="h-12 sm:h-14 md:h-16 w-auto object-contain rounded-lg transition-transform hover:scale-105" 
           />
-        </a>
+        </button>
 
-        {/* NAVIGATION LINKS */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-          {/* HOME */}
-          <a 
-            href="#home" 
-            onClick={handleNavClick('projects', 'top')} 
-            className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors cursor-pointer"
-          >
-            Home
-          </a>
+        {/* NAVIGATION LINKS — Only renders on the 'projects' tab */}
+        {activeTab === 'projects' && (
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+            <a 
+              href="#home" 
+              onClick={handleScroll('top')} 
+              className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors cursor-pointer"
+            >
+              Home
+            </a>
+            <a 
+              href="#projects-section" 
+              onClick={handleScroll('projects-section')} 
+              className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors cursor-pointer"
+            >
+              Projects
+            </a>
+            <a 
+              href="#contact" 
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+              }} 
+              className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors cursor-pointer"
+            >
+              Contact
+            </a>
+          </nav>
+        )}
 
-          {/* PROJECTS */}
-          <a 
-            href="#projects-section" 
-            onClick={handleNavClick('projects', 'projects-section')} 
-            className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors cursor-pointer"
-          >
-            Projects
-          </a>
-
-          {/* CONTACT */}
-          <a 
-            href="#contact" 
-            onClick={(e) => {
-              e.preventDefault();
-              const contactElem = document.getElementById('contact');
-              if (contactElem) {
-                contactElem.scrollIntoView({ behavior: 'smooth' });
-              }
-            }} 
-            className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors cursor-pointer"
-          >
-            Contact
-          </a>
-        </nav>
-
-        {/* RIGHT ACTION ICONS */}
+        {/* RIGHT ACTION ICONS (LinkedIn, GitHub, Theme Toggle) */}
         <div className="flex items-center gap-4 sm:gap-5">
           <div className="hidden sm:block h-5 w-[1px] bg-slate-300 dark:bg-slate-700"></div>
 
