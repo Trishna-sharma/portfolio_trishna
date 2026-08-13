@@ -2,16 +2,25 @@ import React from 'react';
 import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
 
 const Footer = ({ theme }) => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className={`w-full py-8 px-4 mt-auto border-t transition-colors duration-300 ${
-      theme === 'light' 
-        ? 'bg-slate-50 border-slate-200 text-slate-700' 
-        : 'bg-slate-900/90 border-slate-800 text-slate-300'
-    }`}>
+    <footer
+      id="contact"
+      className={`w-full py-8 px-4 mt-auto border-t transition-colors duration-300 scroll-mt-10 ${
+        theme === 'light' 
+          ? 'bg-slate-50 border-slate-200 text-slate-700' 
+          : 'bg-slate-900/90 border-slate-800 text-slate-300'
+      }`}
+    >
       <div className="max-w-6xl mx-auto flex flex-col items-center justify-center gap-4 text-center">
         
         {/* Title */}
-        <h3 className="text-base font-bold flex items-center gap-2 text-slate-900 dark:text-white">
+        <h3
+          className={`text-base font-bold flex items-center gap-2 ${
+            theme === 'light' ? 'text-slate-900' : 'text-white'
+          }`}
+        >
           Let's Connect! <span className="text-lg">👋</span>
         </h3>
 
@@ -33,9 +42,9 @@ const Footer = ({ theme }) => {
 
           {/* LinkedIn Button */}
           <a
-            href="https://linkedin.com" 
+            href="https://www.linkedin.com/in/trishna-sharma-fs/" 
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className={`flex items-center gap-2 px-4 py-2 rounded-xl border transition-all ${
               theme === 'light'
                 ? 'bg-white border-slate-200 hover:border-purple-400 hover:text-purple-600 shadow-sm'
@@ -47,6 +56,11 @@ const Footer = ({ theme }) => {
           </a>
 
         </div>
+
+        {/* Copyright Notice */}
+        <p className="text-xs opacity-60 mt-2">
+          © {currentYear} Trishna Mou. All rights reserved.
+        </p>
 
       </div>
     </footer>
