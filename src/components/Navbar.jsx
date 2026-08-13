@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaLinkedin, FaGithub, FaSun, FaMoon } from 'react-icons/fa';
 
-function Navbar({ myLogo, theme, toggleTheme, setActiveTab, activeTab }) {
+function Navbar({ myLogo, theme, toggleTheme, setActiveTab, activeTab = 'projects' }) {
 
   // Return to top of portfolio when logo is clicked
   const handleLogoClick = (e) => {
@@ -47,8 +47,8 @@ function Navbar({ myLogo, theme, toggleTheme, setActiveTab, activeTab }) {
           />
         </button>
 
-        {/* NAVIGATION LINKS — Only renders on the 'projects' tab */}
-        {activeTab === 'projects' && (
+        {/* NAVIGATION LINKS — Shows everywhere UNLESS on the resume tab */}
+        {activeTab !== 'resume' && (
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
             <a 
               href="#home" 
@@ -77,7 +77,7 @@ function Navbar({ myLogo, theme, toggleTheme, setActiveTab, activeTab }) {
           </nav>
         )}
 
-        {/* RIGHT ACTION ICONS (LinkedIn, GitHub, Theme Toggle) */}
+        {/* RIGHT ACTION ICONS */}
         <div className="flex items-center gap-4 sm:gap-5">
           <div className="hidden sm:block h-5 w-[1px] bg-slate-300 dark:bg-slate-700"></div>
 

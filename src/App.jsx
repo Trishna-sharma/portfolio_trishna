@@ -86,11 +86,12 @@ function App() {
     }`}>
       {/* 1. Pass setActiveTab to Navbar */}
       <Navbar 
-        myLogo={myLogo} 
-        theme={theme} 
-        toggleTheme={toggleTheme} 
-        setActiveTab={setActiveTab} 
-      />
+  myLogo={myLogo} 
+  theme={theme} 
+  toggleTheme={toggleTheme} 
+  setActiveTab={setActiveTab} 
+  activeTab={activeTab} 
+/>
 
       {loadingSpinnerVisible && <LoadingSpinner theme={theme} />}
 
