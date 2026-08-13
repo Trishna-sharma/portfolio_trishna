@@ -3,15 +3,10 @@ import { FaLinkedin, FaGithub, FaSun, FaMoon } from 'react-icons/fa';
 
 function Navbar({ myLogo, theme, toggleTheme, setActiveTab, activeTab = 'projects' }) {
 
-  // Return to top of portfolio when logo is clicked
+  // Logo click: Scroll to top while remaining on the current tab (Resume or Projects)
   const handleLogoClick = (e) => {
     e.preventDefault();
-    if (setActiveTab) {
-      setActiveTab('projects');
-    }
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 50);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // Scroll handler for links on the Projects tab
@@ -35,7 +30,7 @@ function Navbar({ myLogo, theme, toggleTheme, setActiveTab, activeTab = 'project
     }`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
         
-        {/* LOGO */}
+        {/* LOGO - Scrolls to top while staying on current tab */}
         <button 
           onClick={handleLogoClick} 
           className="flex-shrink-0 flex items-center py-2 cursor-pointer focus:outline-none"
@@ -47,7 +42,7 @@ function Navbar({ myLogo, theme, toggleTheme, setActiveTab, activeTab = 'project
           />
         </button>
 
-        {/* NAVIGATION LINKS — Shows everywhere UNLESS on the resume tab */}
+        {/* NAVIGATION LINKS — Hidden when on the resume tab */}
         {activeTab !== 'resume' && (
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
             <a 

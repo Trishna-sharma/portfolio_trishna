@@ -80,8 +80,8 @@ const TabNavigation = ({ theme, projects, activeTab, setActiveTab, handleSubject
                   : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
               }`}
             >
-              Projects
-              {activeTab === 'projects' && (
+              Portfolio
+              {activeTab === 'Projects' && (
                 <motion.div
                   layoutId="activeTabBackground"
                   className={`absolute inset-0 rounded-lg shadow-sm -z-10 ${
