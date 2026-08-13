@@ -40,7 +40,7 @@ function Navbar({ myLogo, theme, toggleTheme }) {
 
           {/* LinkedIn Link */}
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/trishna-sharma-7928b8214/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-500 hover:text-purple-600 dark:text-slate-400 dark:hover:text-purple-400 transition-colors"
@@ -51,7 +51,7 @@ function Navbar({ myLogo, theme, toggleTheme }) {
 
           {/* GitHub Link */}
           <a
-            href="https://github.com"
+            href="https://github.com/Trishna-sharma"
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-500 hover:text-purple-600 dark:text-slate-400 dark:hover:text-purple-400 transition-colors"

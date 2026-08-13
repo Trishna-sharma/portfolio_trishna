@@ -2,13 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
 
-const ContactSection = ({ formCardVisible, theme }) => {
+const ContactSection = ({ theme }) => {
   return (
     <section
       id="contact"
-      className="py-12 px-4 md:px-8 flex flex-col items-center justify-center relative overflow-hidden"
+      className="py-12 px-4 md:px-8 flex flex-col items-center justify-center relative overflow-hidden scroll-mt-20"
     >
-      {/* 1. Ambient Background Glow Orbs */}
+      {/* Ambient Background Glow Orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[380px] h-[380px] bg-accent-teal/15 rounded-full blur-[120px] animate-pulse" />
         <div className="absolute bottom-1/4 right-1/3 w-[280px] h-[280px] bg-highlight-orange/10 rounded-full blur-[100px]" />
@@ -17,11 +17,10 @@ const ContactSection = ({ formCardVisible, theme }) => {
       <div className="flex items-center justify-center p-2 sm:p-4 w-full z-10 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: formCardVisible ? 1 : 0, y: formCardVisible ? 0 : 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           className={`form_card p-6 md:p-10 rounded-2xl shadow-2xl w-full backdrop-blur-md transition-all duration-300 border ${
-            formCardVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-          } ${
             theme === 'light'
               ? 'bg-white/85 border-neutral-200/80 shadow-neutral-900/5'
               : 'bg-neutral-dark/60 border-white/10 shadow-black/50'
@@ -79,7 +78,7 @@ const ContactSection = ({ formCardVisible, theme }) => {
                   {/* Name Input */}
                   <div>
                     <label htmlFor="name" className="flex items-center gap-1.5 mb-1.5 text-xs font-semibold uppercase tracking-wider opacity-80">
-                      <span className="text-accent-teal font-mono"></span> Your Name
+                      Your Name
                     </label>
                     <input
                       type="text"
@@ -98,7 +97,7 @@ const ContactSection = ({ formCardVisible, theme }) => {
                   {/* Email Input */}
                   <div>
                     <label htmlFor="email" className="flex items-center gap-1.5 mb-1.5 text-xs font-semibold uppercase tracking-wider opacity-80">
-                      <span className="text-accent-teal font-mono"></span> Your Email
+                      Your Email
                     </label>
                     <input
                       type="email"
@@ -118,12 +117,12 @@ const ContactSection = ({ formCardVisible, theme }) => {
                 {/* Message Input */}
                 <div>
                   <label htmlFor="message" className="flex items-center gap-1.5 mb-1.5 text-xs font-semibold uppercase tracking-wider opacity-80">
-                    <span className="text-accent-teal font-mono"></span> Message
+                    Message
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    rows="2"
+                    rows="3"
                     className={`text-xs rounded-xl block w-full p-3 outline-none transition-all duration-300 ${
                       theme === 'light'
                         ? 'bg-neutral-100/80 border border-neutral-300/80 text-neutral-dark focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/30 focus:bg-white placeholder:text-neutral-400'
@@ -134,7 +133,7 @@ const ContactSection = ({ formCardVisible, theme }) => {
                   ></textarea>
                 </div>
 
-                {/* Neon Glowy Button */}
+                {/* Button */}
                 <button
                   type="submit"
                   className={`relative group overflow-hidden w-full font-semibold rounded-xl text-xs py-3 text-center transition-all duration-500 ease-in-out focus:outline-none ${
