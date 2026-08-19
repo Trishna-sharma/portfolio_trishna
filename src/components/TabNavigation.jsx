@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaDownload } from 'react-icons/fa';
 import MyWorkSection from './MyWorkSection';
 import ResumeSection from './ResumeSection';
-import cvFile from '../assets/images/CV_QA.pdf';
+import cvFile from '../assets/images/CV_Trishna.pdf';
 
 const TabNavigation = ({ theme, projects, activeTab, setActiveTab, handleSubjectClick, subjectBoxesVisible }) => {
   const [isDownloading, setIsDownloading] = useState(false);
