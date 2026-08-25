@@ -4,8 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 const HeroSection = ({ theme }) => {
   // Roles to cycle through in the hero section animation
   const roles = [
-    "Full-Stack Developer",
+    "UX/UI Researcher",
     "QA Engineer",
+    "Manual Tester",
+    "Software tester",
+    "Lead Generation Specialist",
     "Web Developer"
   ];
 
