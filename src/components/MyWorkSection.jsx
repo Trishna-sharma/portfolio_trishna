@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 // 4 Focused Portfolio Projects with Minimal Status Badges
 const portfolioProjects = [
   {
-    id: 'her-by-mou',
-    title: 'Her By Mou Website',
-    category: 'Web & API Testing',
+    id: 'Bella Liliac',
+    title: 'Bella Skincare and makeup',
+    category: 'QA & Full Stack Development',
     categoryTag: 'WEB DEVELOPMENT',
     status: 'In Progress',
     statusColor: 'text-amber-500 bg-amber-500/10 border-amber-500/20',
@@ -15,7 +15,7 @@ const portfolioProjects = [
       'An elegant e-commerce brand platform built with responsive modern web standards. Features custom UI components, smooth navigation, and optimized media rendering.',
     tags: ['React', 'Tailwind CSS', 'JavaScript', 'Vercel'],
     github: 'https://github.com/Trishna-sharma/Her',
-    demo: 'https://her-by-mou-frontend.vercel.app/',
+    demo: 'https://bella-liliac.vercel.app',
   },
   {
     id: 'journal-app',
