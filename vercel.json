@@ -1,11 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "/upwork",
-      "destination": "/",
-      "permanent": false
-    }
-  ],
   "rewrites": [
     {
       "source": "/(.*)",
