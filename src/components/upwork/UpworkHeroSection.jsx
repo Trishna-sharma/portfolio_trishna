@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const UpworkHeroSection = ({ theme }) => {
   const roles = [
     "Manual Tester",
+    "UX Reviewer",
     "QA Tester",
     "Software Tester",
     "Usability Tester"

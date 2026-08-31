@@ -14,7 +14,19 @@ const portfolioProjects = [
     description:
       'Performed end-to-end manual testing across live AI SaaS web applications. Audited customer onboarding, user auth, AI prompt streaming, edge-case failure states, paywalls, and Stripe billing workflows.',
     tags: ['Manual Testing', 'SaaS', 'AI Workflows', 'Stripe Billing', 'Regression'],
-    github: 'https://github.com/Trishna-sharma',
+    github: '',
+  },
+
+   { id: 'Reviewer (UI/UX)',
+    title: 'Visual Hierarchy, Layout Balance, overall UAT',
+    category: 'UI/UX Review',
+    categoryTag: 'User Experience & User Interface Testing',
+    status: 'Completed',
+    statusColor: 'text-purple-500 bg-purple-500/10 border-purple-500/20',
+    description:
+      'Conducted cross-platform visual hierarchy, responsive layout, and usability testing across iOS, Android, macOS, and Windows. Documented detailed Jira bug reports with reproduction steps, screenshots, and UX design improvements.',
+    tags: ['iOS Testing', 'Android Testing', 'Usability QA', 'Jira', 'Reporting'],
+    github: '',
   },
   {
     id: 'playwright-automation',
@@ -26,7 +38,7 @@ const portfolioProjects = [
     description:
       'A professional-grade end-to-end regression testing framework leveraging Playwright and TypeScript. Features automated critical-path checks, API mock harnesses, and parallel cross-browser execution.',
     tags: ['Playwright', 'TypeScript', 'E2E Automation', 'GitHub Actions'],
-    github: 'https://github.com/Trishna-sharma',
+    github: '',
   },
   {
     id: 'journal-app',
@@ -53,9 +65,10 @@ const portfolioProjects = [
     tags: ['iOS Testing', 'Android Testing', 'Usability QA', 'Jira', 'Bug Reporting'],
     github: 'https://github.com/Trishna-sharma',
   },
+
 ];
 
-const categories = ['All', 'SaaS & Web Testing', 'Web & API Testing', 'Mobile & Usability Testing'];
+const categories = ['All', 'SaaS & Web Testing', 'Web & API Testing', 'Mobile & Usability Testing',"UI/UX Review"];
 
 function UpworkWorkSection({ theme }) {
   const [searchQuery, setSearchQuery] = useState('');

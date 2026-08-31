@@ -46,7 +46,7 @@ const UpworkResumeSection = ({ theme }) => {
               Trishna Sharma
             </h1>
             <p className="text-purple-600 dark:text-purple-400 font-semibold text-sm sm:text-base mt-1">
-              Manual QA Tester
+              Manual QA Tester & UI/UX Reviewer
             </p>
           </div>
 
@@ -69,7 +69,7 @@ const UpworkResumeSection = ({ theme }) => {
         </div>
 
         <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-4xl">
-          Detail-oriented Manual QA Tester with a customer-first mindset. Specializing in testing live SaaS web applications, mobile platforms (iOS & Android), and AI workflows. Expert in catching broken states, confusing UX, and delivering clear, actionable bug reports with screenshots and reproduction steps.
+          Detail-oriented Manual QA Tester & UI/UX Reviewer with a customer-first mindset. Specializing in testing live SaaS web applications, mobile platforms (iOS & Android), and conducting in-depth UI/UX heuristic audits. Expert in catching broken states, confusing user flows, design system discrepancies, and delivering clear, actionable bug reports with annotated screenshots and reproduction steps.
         </p>
       </div>
 
@@ -119,34 +119,56 @@ const UpworkResumeSection = ({ theme }) => {
               </div>
 
               <div className="flex flex-col gap-6 border-l-2 border-purple-500/30 pl-4 ml-3">
+                {/* Role 1: UI/UX Reviewer & Usability Specialist */}
                 <div className="relative">
                   <span className="absolute -left-[23px] top-1.5 w-3 h-3 rounded-full bg-purple-600 ring-4 ring-purple-500/20" />
                   <div className="flex flex-wrap items-center justify-between gap-1 mb-1">
-                    <h4 className="font-bold text-base text-slate-900 dark:text-white">QA Automation & Manual Tester</h4>
+                    <h4 className="font-bold text-base text-slate-900 dark:text-white">UI/UX Reviewer & Usability Specialist</h4>
+                    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400">
+                      2024 - Present
+                    </span>
+                  </div>
+                  <p className="text-xs font-medium text-purple-600 dark:text-purple-400 mb-2">Freelance & Contract Projects | Remote</p>
+                  <ul className="text-xs text-slate-600 dark:text-slate-300 flex flex-col gap-1.5 list-disc list-inside">
+                    <li>Conducted heuristic evaluations, usability audits, and user journey reviews across SaaS dashboards and web/mobile apps.</li>
+                    <li>Audited live web apps against Figma designs to ensure pixel-perfect fidelity, typographic hierarchy, and design system consistency.</li>
+                    <li>Evaluated WCAG 2.1 AA accessibility standards (color contrast ratios, keyboard navigation, touch targets, and ARIA attributes).</li>
+                    <li>Authored comprehensive UX audit decks with annotated screenshots, usability severity ratings, and actionable UI improvement recommendations.</li>
+                  </ul>
+                </div>
+
+                {/* Role 2: QA Automation & UI/UX Manual Tester */}
+                <div className="relative">
+                  <span className="absolute -left-[23px] top-1.5 w-3 h-3 rounded-full bg-purple-600 ring-4 ring-purple-500/20" />
+                  <div className="flex flex-wrap items-center justify-between gap-1 mb-1">
+                    <h4 className="font-bold text-base text-slate-900 dark:text-white">QA Automation & UI/UX Manual Tester</h4>
                     <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400">
                       2025 - 2025
                     </span>
                   </div>
                   <p className="text-xs font-medium text-purple-600 dark:text-purple-400 mb-2">AM Tech | Ras-al-khaimah, UAE</p>
                   <ul className="text-xs text-slate-600 dark:text-slate-300 flex flex-col gap-1.5 list-disc list-inside">
-                    <li>Executing manual test design strategies, exploratory charters, and bug reporting.</li>
-                    <li>Leading regression testing cycles, client communication, and release quality gates.</li>
-                    <li>Mentoring team members and implementing software testing best practices.</li>
+                    <li>Executed exploratory and manual test charters targeting customer onboarding, checkout funnels, and interactive elements.</li>
+                    <li>Performed design-to-code verification, responsive layout auditing across iOS/Android, and cross-browser regression cycles.</li>
+                    <li>Collaborated directly with designers and developers to triage usability friction, micro-interaction bugs, and visual defects.</li>
+                    <li>Mentored QA team members on structured bug reporting, user flow validation, and quality gate management.</li>
                   </ul>
                 </div>
 
+                {/* Role 3: Functional & Usability Tester */}
                 <div className="relative">
                   <span className="absolute -left-[23px] top-1.5 w-3 h-3 rounded-full bg-purple-600 ring-4 ring-purple-500/20" />
                   <div className="flex flex-wrap items-center justify-between gap-1 mb-1">
-                    <h4 className="font-bold text-base text-slate-900 dark:text-white">Functional Tester</h4>
+                    <h4 className="font-bold text-base text-slate-900 dark:text-white">Functional & Usability Tester</h4>
                     <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400">
                       2023 - 2025
                     </span>
                   </div>
-                  <p className="text-xs font-medium text-purple-600 dark:text-purple-400 mb-2">Al Nasr Building Maintenance | Ras-al-khaimah, United arab Emirates</p>
+                  <p className="text-xs font-medium text-purple-600 dark:text-purple-400 mb-2">Al Nasr Building Maintenance | Ras-al-khaimah, UAE</p>
                   <ul className="text-xs text-slate-600 dark:text-slate-300 flex flex-col gap-1.5 list-disc list-inside">
-                    <li>Managed workflow integration, project management, and feedback cycles.</li>
-                    <li>Conducted performance evaluations and functional test execution.</li>
+                    <li>Conducted functional, usability, and exploratory testing on service workflow dashboards and internal management portals.</li>
+                    <li>Evaluated technician task completion paths and form error-handling to minimize user friction and data entry errors.</li>
+                    <li>Gathered user feedback to identify interface pain points and recommended actionable navigation enhancements.</li>
                   </ul>
                 </div>
               </div>
@@ -183,7 +205,7 @@ const UpworkResumeSection = ({ theme }) => {
                 <p className="text-xs font-medium text-purple-600 dark:text-purple-400 mb-2">Bath Spa University</p>
                 <ul className="text-xs text-slate-600 dark:text-slate-300 flex flex-col gap-1.5 list-disc list-inside">
                   <li>Comprehensive knowledge in Computer Science & software engineering principles.</li>
-                  <li>Emphasizing project optimization and data-driven QA automation strategies.</li>
+                  <li>Emphasizing project optimization, UI/UX evaluation principles, and data-driven QA strategies.</li>
                 </ul>
               </div>
             </motion.div>
@@ -243,11 +265,11 @@ const UpworkResumeSection = ({ theme }) => {
 
               <ul className="text-xs text-slate-600 dark:text-slate-300 flex flex-col gap-2.5">
                 {[
-                  'Manual testing for web and SaaS applications from real customer perspectives',
-                  'Writing clear, detailed bug reports with reproduction steps, screenshots, and logs',
-                  'Covering testing types: Smoke, Sanity, Exploratory, Functional, Usability, Regression',
-                  'Mobile and responsive UI testing across iOS, Android, and desktop browsers',
-                  'Regression-checking critical paths (signup, onboarding, AI interactions, billing/Stripe)',
+                  'Manual testing & UI/UX heuristic reviews for SaaS and mobile apps from customer perspectives',
+                  'Design-to-code audits: verifying Figma designs vs live production builds for pixel-perfect fidelity',
+                  'Writing structured bug & UX audit reports with reproduction steps, annotated screenshots, and logs',
+                  'Usability, Accessibility (WCAG 2.1 AA), and responsive breakpoint testing across iOS and Android',
+                  'Regression-checking critical user paths (onboarding, checkout funnels, AI interactions, Stripe billing)',
                   'End-to-end browser automation with Playwright and API testing with Postman'
                 ].map((spec, i) => (
                   <li key={i} className="flex items-start gap-2">
@@ -280,8 +302,19 @@ const UpworkResumeSection = ({ theme }) => {
                 <div>
                   <span className="font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">Languages</span>
                   <div className="flex flex-wrap gap-1.5">
-                    {['JavaScript', 'TypeScript'].map((tech) => (
+                    {['JavaScript', 'TypeScript', 'HTML5 / CSS3'].map((tech) => (
                       <span key={tech} className="px-2.5 py-1 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-300 font-medium">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <span className="font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">UI/UX & Review Tools</span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {['Figma', 'Chrome DevTools', 'Lighthouse (Accessibility & SEO)', 'Screenity / Loom', 'Miro'].map((tech) => (
+                      <span key={tech} className="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 font-medium">
                         {tech}
                       </span>
                     ))}
@@ -291,7 +324,7 @@ const UpworkResumeSection = ({ theme }) => {
                 <div>
                   <span className="font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">Testing Frameworks & Tools</span>
                   <div className="flex flex-wrap gap-1.5">
-                    {['Playwright (Node.js)', 'Cypress (Node.js)', 'Postman', 'Lighthouse'].map((tech) => (
+                    {['Playwright (Node.js)', 'Cypress (Node.js)', 'Postman', 'JMeter'].map((tech) => (
                       <span key={tech} className="px-2.5 py-1 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-300 font-medium">
                         {tech}
                       </span>
@@ -302,7 +335,7 @@ const UpworkResumeSection = ({ theme }) => {
                 <div>
                   <span className="font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">Tools & Issue Tracking</span>
                   <div className="flex flex-wrap gap-1.5">
-                    {['Jira', 'Azure DevOps', 'GitHub Actions', 'Postman', 'Git', 'Chrome DevTools', 'JMeter'].map((tech) => (
+                    {['Jira', 'Azure DevOps', 'GitHub Actions', 'Git', 'Notion', 'ClickUp'].map((tech) => (
                       <span key={tech} className={`px-2.5 py-1 rounded-lg font-medium ${
                         theme === 'light' ? 'bg-slate-200 text-slate-700' : 'bg-slate-700/60 text-slate-200'
                       }`}>
@@ -334,11 +367,12 @@ const UpworkResumeSection = ({ theme }) => {
 
               <div className="flex flex-wrap gap-2">
                 {[
-                  'Manual Testing', 'Usability Testing', 'iOS Testing', 'Android Testing', 
-                  'Exploratory Testing', 'Regression Testing', 'Smoke & Sanity Testing', 
-                  'SaaS Workflow Testing', 'AI Interaction QA', 'Test Plans & Bug Reports', 
-                  'Cross-Browser Testing', 'API Testing (Postman)', 'Playwright (Node.js)', 
-                  'Jira & Azure DevOps', 'WCAG Accessibility', 'Agile / SCRUM'
+                  'UI/UX Auditing', 'Usability Testing', 'Heuristic Evaluation', 'Figma Inspection',
+                  'Design Consistency QA', 'WCAG 2.1 AA Accessibility', 'User Flow Analysis', 
+                  'Manual Testing', 'iOS & Android Testing', 'Exploratory Testing', 'Regression Testing', 
+                  'Smoke & Sanity Testing', 'SaaS Workflow Testing', 'AI Interaction QA', 
+                  'Test Plans & Bug Reports', 'Cross-Browser Testing', 'API Testing (Postman)', 
+                  'Playwright (Node.js)', 'Jira & Azure DevOps', 'Agile / SCRUM'
                 ].map((skill) => (
                   <span 
                     key={skill} 
