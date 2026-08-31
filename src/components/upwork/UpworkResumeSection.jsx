@@ -118,32 +118,15 @@ const UpworkResumeSection = ({ theme }) => {
                 <h3 className="text-xl font-bold">Work Experience</h3>
               </div>
 
-              <div className="flex flex-col gap-6 border-l-2 border-purple-500/30 pl-4 ml-3">
-                {/* Role 1: UI/UX Reviewer & Usability Specialist */}
-                <div className="relative">
-                  <span className="absolute -left-[23px] top-1.5 w-3 h-3 rounded-full bg-purple-600 ring-4 ring-purple-500/20" />
-                  <div className="flex flex-wrap items-center justify-between gap-1 mb-1">
-                    <h4 className="font-bold text-base text-slate-900 dark:text-white">UI/UX Reviewer & Usability Specialist</h4>
-                    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400">
-                      2024 - Present
-                    </span>
-                  </div>
-                  <p className="text-xs font-medium text-purple-600 dark:text-purple-400 mb-2">Freelance & Contract Projects | Remote</p>
-                  <ul className="text-xs text-slate-600 dark:text-slate-300 flex flex-col gap-1.5 list-disc list-inside">
-                    <li>Conducted heuristic evaluations, usability audits, and user journey reviews across SaaS dashboards and web/mobile apps.</li>
-                    <li>Audited live web apps against Figma designs to ensure pixel-perfect fidelity, typographic hierarchy, and design system consistency.</li>
-                    <li>Evaluated WCAG 2.1 AA accessibility standards (color contrast ratios, keyboard navigation, touch targets, and ARIA attributes).</li>
-                    <li>Authored comprehensive UX audit decks with annotated screenshots, usability severity ratings, and actionable UI improvement recommendations.</li>
-                  </ul>
-                </div>
+             
 
-                {/* Role 2: QA Automation & UI/UX Manual Tester */}
+                {/* Role 2: UI/UX & Manual Tester */}
                 <div className="relative">
                   <span className="absolute -left-[23px] top-1.5 w-3 h-3 rounded-full bg-purple-600 ring-4 ring-purple-500/20" />
                   <div className="flex flex-wrap items-center justify-between gap-1 mb-1">
                     <h4 className="font-bold text-base text-slate-900 dark:text-white">QA Automation & UI/UX Manual Tester</h4>
                     <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400">
-                      2025 - 2025
+                      2025 - 2026
                     </span>
                   </div>
                   <p className="text-xs font-medium text-purple-600 dark:text-purple-400 mb-2">AM Tech | Ras-al-khaimah, UAE</p>
@@ -171,7 +154,6 @@ const UpworkResumeSection = ({ theme }) => {
                     <li>Gathered user feedback to identify interface pain points and recommended actionable navigation enhancements.</li>
                   </ul>
                 </div>
-              </div>
             </motion.div>
           )}
 
