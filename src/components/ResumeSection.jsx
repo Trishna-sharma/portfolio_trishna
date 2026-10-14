@@ -63,7 +63,7 @@ const ResumeSection = ({ theme }) => {
             <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border ${
               theme === 'light' ? 'bg-white border-slate-200 text-slate-600 shadow-sm' : 'bg-slate-900/60 border-slate-700 text-slate-300'
             }`}>
-              <FaMapMarkerAlt className="text-purple-500" /> Ras-al-Khaimah, UAE
+              <FaMapMarkerAlt className="text-purple-500" /> Krakow, Poland
             </span>
           </div>
         </div>
