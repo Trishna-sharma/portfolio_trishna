@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaDownload } from 'react-icons/fa';
 import UpworkWorkSection from './UpworkWorkSection';
 import UpworkResumeSection from './UpworkResumeSection';
-import cvFile from '../../assets/images/CV_Trishna.pdf';
+import cvFile from '../../assets/images/CV_Trishnaa.pdf';
 
 const UpworkTabNavigation = ({ theme, activeTab, setActiveTab }) => {
   const [isDownloading, setIsDownloading] = useState(false);
